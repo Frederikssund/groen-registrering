@@ -1,16 +1,3 @@
-
--- Database 'groenreg'
--- Et systemskifte i Frederikssund Kommunes Vej & Park til en Open Source-løsning baseret på PostgreSQL/PostGIS og QGIS
--- Udarbejdet ud fra det Fælleskommunale Geodatasamarbejdes Datamodel (FKG)
-
--- Frederikssund Kommunes grønne registrering
--- Af Casper Bertelsen Jensen, Have- og parkingenigørstuderende
--- Udarbejdet
---	- i forbindelse med praktikophold Sept '16 - Jan '17
---	- i samarbejde med
---		Frederikssund Kommunes Vej & Park-afdeling
---		Bo Victor Thomsen, Frederikssund Kommunes GIS-afdeling
-
 ---
 --- SET
 ---
@@ -30,8 +17,12 @@ SET row_security = off;
 
 CREATE SCHEMA greg;
 
+COMMENT ON SCHEMA greg IS 'Skema indeholdende grund- og rådata.';
+
 
 CREATE SCHEMA greg_history;
+
+COMMENT ON SCHEMA greg_history IS 'Skema indeholdende historikdata.';
 
 --
 -- CREATE EXTENSION
@@ -84,12 +75,12 @@ tgp AS (
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
 			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst as arbejdssted,
+			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
 			'P'::text AS objekt_type,
 			''::text AS note
 		FROM greg.t_greg_punkter a
 		LEFT JOIN greg.d_basis_underelementer b ON a.underelement_kode = b.underelement_kode
-		LEFT JOIN greg.t_greg_omraader c on a.arbejdssted = c.pg_distrikt_nr
+		LEFT JOIN greg.t_greg_omraader c ON a.arbejdssted = c.pg_distrikt_nr
 		WHERE EXTRACT (YEAR FROM a.systid_fra) = $1 AND a.systid_fra = a.oprettet
 	),
 
@@ -104,7 +95,7 @@ tghp AS (
 			END AS handling,
 			a.systid_til::timestamp(0) AS dato,
 			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst as arbejdssted,
+			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
 			'P'::text AS objekt_type,
 			CASE
 				WHEN EXTRACT (YEAR FROM a.oprettet) = $1
@@ -124,13 +115,13 @@ tghpo AS (
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
 			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst as arbejdssted,
+			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
 			'P'::text AS objekt_type,
 			''::text AS note
 		FROM greg_history.t_greg_punkter a
 		LEFT JOIN greg.d_basis_underelementer b ON a.underelement_kode = b.underelement_kode
 		LEFT JOIN greg.t_greg_omraader c ON a.arbejdssted = c.pg_distrikt_nr
-		WHERE EXTRACT (YEAR FROM a.systid_fra) = $1 and a.systid_fra = a.oprettet
+		WHERE EXTRACT (YEAR FROM a.systid_fra) = $1 AND a.systid_fra = a.oprettet
 	),
 
 tgl AS (
@@ -140,12 +131,12 @@ tgl AS (
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
 			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst as arbejdssted,
+			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
 			'L'::text AS objekt_type,
 			''::text AS note
 		FROM greg.t_greg_linier a
 		LEFT JOIN greg.d_basis_underelementer b ON a.underelement_kode = b.underelement_kode
-		LEFT JOIN greg.t_greg_omraader c on a.arbejdssted = c.pg_distrikt_nr
+		LEFT JOIN greg.t_greg_omraader c ON a.arbejdssted = c.pg_distrikt_nr
 		WHERE EXTRACT (YEAR FROM a.systid_fra) = $1 AND a.systid_fra = a.oprettet
 	),
 
@@ -160,7 +151,7 @@ tghl AS (
 			END AS handling,
 			a.systid_til::timestamp(0) AS dato,
 			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst as arbejdssted,
+			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
 			'L'::text AS objekt_type,
 			CASE
 				WHEN EXTRACT (YEAR FROM a.oprettet) = $1
@@ -180,13 +171,13 @@ tghlo AS (
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
 			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst as arbejdssted,
+			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
 			'L'::text AS objekt_type,
 			''::text AS note
 		FROM greg_history.t_greg_linier a
 		LEFT JOIN greg.d_basis_underelementer b ON a.underelement_kode = b.underelement_kode
 		LEFT JOIN greg.t_greg_omraader c ON a.arbejdssted = c.pg_distrikt_nr
-		WHERE EXTRACT (YEAR FROM a.systid_fra) = $1 and a.systid_fra = a.oprettet
+		WHERE EXTRACT (YEAR FROM a.systid_fra) = $1 AND a.systid_fra = a.oprettet
 	),
 
 tgf AS (
@@ -196,12 +187,12 @@ tgf AS (
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
 			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst as arbejdssted,
+			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
 			'F'::text AS objekt_type,
 			''::text AS note
 		FROM greg.t_greg_flader a
 		LEFT JOIN greg.d_basis_underelementer b ON a.underelement_kode = b.underelement_kode
-		LEFT JOIN greg.t_greg_omraader c on a.arbejdssted = c.pg_distrikt_nr
+		LEFT JOIN greg.t_greg_omraader c ON a.arbejdssted = c.pg_distrikt_nr
 		WHERE EXTRACT (YEAR FROM a.systid_fra) = $1 AND a.systid_fra = a.oprettet
 	),
 
@@ -216,7 +207,7 @@ tghf AS (
 			END AS handling,
 			a.systid_til::timestamp(0) AS dato,
 			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst as arbejdssted,
+			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
 			'F'::text AS objekt_type,
 			CASE
 				WHEN EXTRACT (YEAR FROM a.oprettet) = $1
@@ -236,13 +227,13 @@ tghfo AS (
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
 			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst as arbejdssted,
+			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
 			'F'::text AS objekt_type,
 			''::text AS note
 		FROM greg_history.t_greg_flader a
 		LEFT JOIN greg.d_basis_underelementer b ON a.underelement_kode = b.underelement_kode
 		LEFT JOIN greg.t_greg_omraader c ON a.arbejdssted = c.pg_distrikt_nr
-		WHERE EXTRACT (YEAR FROM a.systid_fra) = $1 and a.systid_fra = a.oprettet
+		WHERE EXTRACT (YEAR FROM a.systid_fra) = $1 AND a.systid_fra = a.oprettet
 	)
 
 SELECT * FROM tgp
@@ -1605,6 +1596,7 @@ CREATE TABLE greg.d_basis_ansvarlig_myndighed (
 	CONSTRAINT d_basis_ansvarlig_myndighed_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_ansvarlig_myndighed IS 'Elementer er tilknyttet pågældende kommune (FKG).';
 
 
 CREATE TABLE greg.d_basis_bruger_id (
@@ -1615,6 +1607,7 @@ CREATE TABLE greg.d_basis_bruger_id (
 	CONSTRAINT d_basis_bruger_id_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_bruger_id IS 'ID på bruger, som har oprettet eller ændret elementet (FKG).';
 
 
 CREATE TABLE greg.d_basis_distrikt_type (
@@ -1624,6 +1617,7 @@ CREATE TABLE greg.d_basis_distrikt_type (
 	CONSTRAINT d_basis_distrikt_type_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_distrikt_type IS 'Områder inddeles i forskellige områdetyper. Fx grønne områder, skoler mv.';
 
 
 CREATE TABLE greg.d_basis_hovedelementer (
@@ -1634,6 +1628,7 @@ CREATE TABLE greg.d_basis_hovedelementer (
 	CONSTRAINT d_basis_hovedelementer_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_hovedelementer IS 'Den generelle elementtype. Fx græs, belægninger mv.';
 
 
 CREATE TABLE greg.d_basis_elementer (
@@ -1648,6 +1643,7 @@ CREATE TABLE greg.d_basis_elementer (
 	CONSTRAINT d_basis_elementer_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_elementer IS 'Den mere specifikke elementtype. Fx Faste belægninger, løse belægninger mv.';
 
 
 CREATE TABLE greg.d_basis_kommunal_kontakt (
@@ -1655,11 +1651,12 @@ CREATE TABLE greg.d_basis_kommunal_kontakt (
 	telefon character(8) NOT NULL,
 	email character varying(50) NOT NULL,
 	aktiv integer DEFAULT 1 NOT NULL,
-	CONSTRAINT d_basis_kommunal_kontakt_pk PRIMARY KEY (navn) WITH (fillfactor='10'),
+	CONSTRAINT d_basis_kommunal_kontakt_pk PRIMARY KEY (email) WITH (fillfactor='10'),
 	CONSTRAINT d_basis_kommunal_kontakt_ck_telefon CHECK ((telefon ~* '[0-9]{8}')),
 	CONSTRAINT d_basis_kommunal_kontakt_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_kommunal_kontakt IS 'Den person, som et bestemt område vedrører (FKG).';
 
 
 CREATE TABLE greg.d_basis_offentlig (
@@ -1670,6 +1667,7 @@ CREATE TABLE greg.d_basis_offentlig (
 	CONSTRAINT d_basis_offentlig_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_offentlig IS 'Et elements offentlighedsstatus (FKG).';
 
 
 CREATE TABLE greg.d_basis_omraadenr (
@@ -1677,7 +1675,7 @@ CREATE TABLE greg.d_basis_omraadenr (
 	CONSTRAINT d_basis_omraadenr_pk PRIMARY KEY (pg_distrikt_nr) WITH (fillfactor='10')
 );
 
-COMMENT ON TABLE greg.d_basis_omraadenr IS 'Indirekte relation mellem t_greg_omraader og hhv. (t_greg) flader, linier og punkter. Ellers er der problemer med merge i QGIS';
+COMMENT ON TABLE greg.d_basis_omraadenr IS 'Indirekte relation mellem t_greg_omraader og hhv. (t_greg) flader, linier og punkter. Ellers er der problemer med merge i QGIS.';
 
 
 
@@ -1690,16 +1688,18 @@ CREATE TABLE greg.d_basis_oprindelse (
 	CONSTRAINT d_basis_oprindelse_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_oprindelse IS 'Et elements oprindelse, tegnet fra ortofoto, højdemodel mv. (FKG)';
 
 
 CREATE TABLE greg.d_basis_postdistrikter (
-	postdistrikt numeric(4,0) NOT NULL,
+	postnr numeric(4,0) NOT NULL,
 	distriktnavn character varying(28) NOT NULL,
 	aktiv integer DEFAULT 1 NOT NULL,
-	CONSTRAINT d_basis_postdistrikter_pk PRIMARY KEY (postdistrikt) WITH (fillfactor='10'),
+	CONSTRAINT d_basis_postdistrikter_pk PRIMARY KEY (postnr) WITH (fillfactor='10'),
 	CONSTRAINT d_basis_postdistrikter_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_postdistrikter IS 'Det postnr. et givent område ligger i.';
 
 
 CREATE TABLE greg.d_basis_pris_enhed (
@@ -1709,6 +1709,7 @@ CREATE TABLE greg.d_basis_pris_enhed (
 	CONSTRAINT d_basis_pris_enhed_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_pris_enhed IS 'Den enhed, som et element afregnes efter. Fx pr lbm, m2 mv.';
 
 
 CREATE TABLE greg.d_basis_status (
@@ -1719,6 +1720,7 @@ CREATE TABLE greg.d_basis_status (
 	CONSTRAINT d_basis_status_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_status IS 'Et elements gyldighedsstatus (FKG).';
 
 
 CREATE TABLE greg.d_basis_tilstand (
@@ -1730,6 +1732,7 @@ CREATE TABLE greg.d_basis_tilstand (
 	CONSTRAINT d_basis_tilstand_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_tilstand IS 'Et elements tilstand (FKG).';
 
 
 CREATE TABLE greg.d_basis_udfoerer (
@@ -1739,6 +1742,7 @@ CREATE TABLE greg.d_basis_udfoerer (
 	CONSTRAINT d_basis_udfoerer_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_udfoerer IS 'Et givent områdes ansvarlige udfører (FKG).';
 
 
 CREATE TABLE greg.d_basis_udfoerer_entrep (
@@ -1748,6 +1752,7 @@ CREATE TABLE greg.d_basis_udfoerer_entrep (
 	CONSTRAINT d_basis_udfoerer_entrep_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_udfoerer_entrep IS 'Et elements ansvarlige udførerende entreprenør (FKG).';
 
 
 CREATE TABLE greg.d_basis_udfoerer_kontakt (
@@ -1756,13 +1761,14 @@ CREATE TABLE greg.d_basis_udfoerer_kontakt (
 	telefon character(8) NOT NULL,
 	email character varying(50) NOT NULL,
 	aktiv integer DEFAULT 1 NOT NULL,
-	CONSTRAINT d_basis_udfoerer_kontakt_pk PRIMARY KEY (navn) WITH (fillfactor='10'),
+	CONSTRAINT d_basis_udfoerer_kontakt_pk PRIMARY KEY (email) WITH (fillfactor='10'),
 	CONSTRAINT d_basis_udfoerer_kontakt_fk_d_basis_udfoerer FOREIGN KEY (udfoerer) REFERENCES greg.d_basis_udfoerer(udfoerer) MATCH FULL
 		ON UPDATE CASCADE,
 	CONSTRAINT d_basis_udfoerer_kontakt_ck_telefon CHECK ((telefon ~* '[0-9]{8}')),
 	CONSTRAINT d_basis_udfoerer_kontakt_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_udfoerer_kontakt IS 'Kontaktsinformationer på den ansvarlige udfører (FKG).';
 
 
 CREATE TABLE greg.d_basis_underelementer (
@@ -1784,6 +1790,7 @@ CREATE TABLE greg.d_basis_underelementer (
 	CONSTRAINT d_basis_underelementer_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.d_basis_underelementer IS 'Den helt specifikke elementtype. Fx beton, asfalt mv.';
 
 
 CREATE TABLE greg.d_basis_vejnavn (
@@ -1796,6 +1803,7 @@ CREATE TABLE greg.d_basis_vejnavn (
 	CONSTRAINT d_basis_vejnavn_pk PRIMARY KEY (vejkode) WITH (fillfactor='10')
 );
 
+COMMENT ON TABLE greg.d_basis_vejnavn IS 'Vejnavne tilknyttet hhv. elementer og områder';
 
 
 CREATE TABLE greg.t_greg_delomraader (
@@ -1812,6 +1820,7 @@ CREATE TABLE greg.t_greg_delomraader (
 	ON UPDATE CASCADE
 );
 
+COMMENT ON TABLE greg.t_greg_delomraader IS 'Specifikke områdeopdelinger i tilfælde af for store områder mht. atlas i QGIS';
 
 
 CREATE TABLE greg.t_greg_flader (
@@ -1842,7 +1851,7 @@ CREATE TABLE greg.t_greg_flader (
 	CONSTRAINT t_greg_flader_fk_d_basis_ansvarlig_myndighed FOREIGN KEY (cvr_kode) REFERENCES greg.d_basis_ansvarlig_myndighed(cvr_kode) MATCH FULL,
 	CONSTRAINT t_greg_flader_fk_d_basis_bruger_id FOREIGN KEY (bruger_id) REFERENCES greg.d_basis_bruger_id(bruger_id) MATCH FULL
 		ON UPDATE CASCADE,
-	CONSTRAINT t_greg_flader_fk_d_basis_kommunal_kontakt FOREIGN KEY (kommunal_kontakt) REFERENCES greg.d_basis_kommunal_kontakt(navn) MATCH FULL
+	CONSTRAINT t_greg_flader_fk_d_basis_kommunal_kontakt FOREIGN KEY (kommunal_kontakt) REFERENCES greg.d_basis_kommunal_kontakt(email) MATCH FULL
 		ON UPDATE CASCADE,
 	CONSTRAINT t_greg_flader_fk_d_basis_offentlig FOREIGN KEY (off_kode) REFERENCES greg.d_basis_offentlig(off_kode) MATCH FULL,
 	CONSTRAINT t_greg_flader_fk_d_basis_omraadenr FOREIGN KEY (arbejdssted) REFERENCES greg.d_basis_omraadenr(pg_distrikt_nr) MATCH FULL
@@ -1859,6 +1868,7 @@ CREATE TABLE greg.t_greg_flader (
 	CONSTRAINT t_greg_flader_ck_geometri CHECK ((public.ST_IsValid(geometri) IS TRUE))
 );
 
+COMMENT ON TABLE greg.t_greg_flader IS 'Rådatatabel for elementer defineret som flader';
 
 
 CREATE TABLE greg.t_greg_linier (
@@ -1889,7 +1899,7 @@ CREATE TABLE greg.t_greg_linier (
 	CONSTRAINT t_greg_linier_fk_d_basis_ansvarlig_myndighed FOREIGN KEY (cvr_kode) REFERENCES greg.d_basis_ansvarlig_myndighed(cvr_kode) MATCH FULL,
 	CONSTRAINT t_greg_linier_fk_d_basis_bruger_id FOREIGN KEY (bruger_id) REFERENCES greg.d_basis_bruger_id(bruger_id) MATCH FULL
 		ON UPDATE CASCADE,
-	CONSTRAINT t_greg_linier_fk_d_basis_kommunal_kontakt FOREIGN KEY (kommunal_kontakt) REFERENCES greg.d_basis_kommunal_kontakt(navn) MATCH FULL
+	CONSTRAINT t_greg_linier_fk_d_basis_kommunal_kontakt FOREIGN KEY (kommunal_kontakt) REFERENCES greg.d_basis_kommunal_kontakt(email) MATCH FULL
 		ON UPDATE CASCADE,
 	CONSTRAINT t_greg_linier_fk_d_basis_offentlig FOREIGN KEY (off_kode) REFERENCES greg.d_basis_offentlig(off_kode) MATCH FULL,
 	CONSTRAINT t_greg_linier_fk_d_basis_omraadenr FOREIGN KEY (arbejdssted) REFERENCES greg.d_basis_omraadenr(pg_distrikt_nr) MATCH FULL
@@ -1906,6 +1916,7 @@ CREATE TABLE greg.t_greg_linier (
 	CONSTRAINT t_greg_linier_ck_valid CHECK ((public.ST_IsValid(geometri) IS TRUE))
 );
 
+COMMENT ON TABLE greg.t_greg_linier IS 'Rådatatabel for elementer defineret som linier';
 
 
 CREATE TABLE greg.t_greg_omraader (
@@ -1931,21 +1942,22 @@ CREATE TABLE greg.t_greg_omraader (
 		ON UPDATE CASCADE,
 	CONSTRAINT t_greg_omraader_fk_d_basis_distrikt_type FOREIGN KEY (pg_distrikt_type) REFERENCES greg.d_basis_distrikt_type(pg_distrikt_type) MATCH FULL
 		ON UPDATE CASCADE,
-	CONSTRAINT t_greg_omraader_fk_d_basis_kommunal_kontakt FOREIGN KEY (kommunal_kontakt) REFERENCES greg.d_basis_kommunal_kontakt(navn) MATCH FULL
+	CONSTRAINT t_greg_omraader_fk_d_basis_kommunal_kontakt FOREIGN KEY (kommunal_kontakt) REFERENCES greg.d_basis_kommunal_kontakt(email) MATCH FULL
 		ON UPDATE CASCADE,
 	CONSTRAINT t_greg_omraader_fk_d_basis_omraadenr FOREIGN KEY (pg_distrikt_nr) REFERENCES greg.d_basis_omraadenr(pg_distrikt_nr) MATCH FULL
 		ON UPDATE CASCADE,
-	CONSTRAINT t_greg_omraader_fk_d_basis_postdistrikter FOREIGN KEY (postnr) REFERENCES greg.d_basis_postdistrikter(postdistrikt) MATCH FULL,
+	CONSTRAINT t_greg_omraader_fk_d_basis_postdistrikter FOREIGN KEY (postnr) REFERENCES greg.d_basis_postdistrikter(postnr) MATCH FULL,
 	CONSTRAINT t_greg_omraader_fk_d_basis_udfoerer FOREIGN KEY (udfoerer) REFERENCES greg.d_basis_udfoerer(udfoerer) MATCH FULL
 		ON UPDATE CASCADE,
-	CONSTRAINT t_greg_omraader_fk_d_basis_udfoerer_kontakt1 FOREIGN KEY (udfoerer_kontakt1) REFERENCES greg.d_basis_udfoerer_kontakt(navn) MATCH FULL
+	CONSTRAINT t_greg_omraader_fk_d_basis_udfoerer_kontakt1 FOREIGN KEY (udfoerer_kontakt1) REFERENCES greg.d_basis_udfoerer_kontakt(email) MATCH FULL
 		ON UPDATE CASCADE,
-	CONSTRAINT t_greg_omraader_fk_d_basis_udfoerer_kontakt2 FOREIGN KEY (udfoerer_kontakt2) REFERENCES greg.d_basis_udfoerer_kontakt(navn) MATCH FULL
+	CONSTRAINT t_greg_omraader_fk_d_basis_udfoerer_kontakt2 FOREIGN KEY (udfoerer_kontakt2) REFERENCES greg.d_basis_udfoerer_kontakt(email) MATCH FULL
 		ON UPDATE CASCADE,
 	CONSTRAINT t_greg_omraader_fk_d_basis_vejnavn FOREIGN KEY (vejkode) REFERENCES greg.d_basis_vejnavn(vejkode) MATCH FULL,
 	CONSTRAINT t_greg_omraader_ck_aktiv CHECK ((aktiv BETWEEN 0 AND 1))
 );
 
+COMMENT ON TABLE greg.t_greg_omraader IS 'Områdetabel';
 
 
 CREATE TABLE greg.t_greg_punkter (
@@ -1978,7 +1990,7 @@ CREATE TABLE greg.t_greg_punkter (
 	CONSTRAINT t_greg_punkter_fk_d_basis_ansvarlig_myndighed FOREIGN KEY (cvr_kode) REFERENCES greg.d_basis_ansvarlig_myndighed(cvr_kode) MATCH FULL,
 	CONSTRAINT t_greg_punkter_fk_d_basis_bruger_id FOREIGN KEY (bruger_id) REFERENCES greg.d_basis_bruger_id(bruger_id) MATCH FULL
 		ON UPDATE CASCADE,
-	CONSTRAINT t_greg_punkter_fk_d_basis_kommunal_kontakt FOREIGN KEY (kommunal_kontakt) REFERENCES greg.d_basis_kommunal_kontakt(navn) MATCH FULL
+	CONSTRAINT t_greg_punkter_fk_d_basis_kommunal_kontakt FOREIGN KEY (kommunal_kontakt) REFERENCES greg.d_basis_kommunal_kontakt(email) MATCH FULL
 		ON UPDATE CASCADE,
 	CONSTRAINT t_greg_punkter_fk_d_basis_offentlig FOREIGN KEY (off_kode) REFERENCES greg.d_basis_offentlig(off_kode) MATCH FULL,
 	CONSTRAINT t_greg_punkter_fk_d_basis_omraadenr FOREIGN KEY (arbejdssted) REFERENCES greg.d_basis_omraadenr(pg_distrikt_nr) MATCH FULL
@@ -1994,6 +2006,7 @@ CREATE TABLE greg.t_greg_punkter (
 	CONSTRAINT t_greg_punkter_ck_hoejde CHECK ((hoejde >= 0.00))
 );
 
+COMMENT ON TABLE greg.t_greg_punkter IS 'Rådatatabel for elementer defineret som punkter';
 
 
 CREATE TABLE greg.t_skitse_fl (
@@ -2010,6 +2023,7 @@ CREATE TABLE greg.t_skitse_fl (
 		ON UPDATE CASCADE
 );
 
+COMMENT ON TABLE greg.t_skitse_fl IS 'Skitselag, flader';
 
 
 CREATE TABLE greg.t_skitse_li (
@@ -2026,6 +2040,7 @@ CREATE TABLE greg.t_skitse_li (
 		ON UPDATE CASCADE
 );
 
+COMMENT ON TABLE greg.t_skitse_li IS 'Skitselag, linier';
 
 
 CREATE TABLE greg.t_skitse_pkt (
@@ -2042,6 +2057,7 @@ CREATE TABLE greg.t_skitse_pkt (
 		ON UPDATE CASCADE
 );
 
+COMMENT ON TABLE greg.t_skitse_pkt IS 'Skitselag, punkter';
 
 --
 -- Search path
@@ -2080,6 +2096,7 @@ CREATE TABLE greg_history.t_greg_flader (
 	CONSTRAINT t_greg_flader_pk PRIMARY KEY (versions_id) WITH (fillfactor='10')
 );
 
+COMMENT ON TABLE greg_history.t_greg_flader IS 'Historik tilknyttet flader';
 
 
 CREATE TABLE greg_history.t_greg_linier (
@@ -2109,6 +2126,7 @@ CREATE TABLE greg_history.t_greg_linier (
 	CONSTRAINT t_greg_linier_pk PRIMARY KEY (versions_id) WITH (fillfactor='10')
 );
 
+COMMENT ON TABLE greg_history.t_greg_linier IS 'Historik tilknyttet linier';
 
 
 CREATE TABLE greg_history.t_greg_punkter (
@@ -2140,6 +2158,7 @@ CREATE TABLE greg_history.t_greg_punkter (
 	CONSTRAINT t_greg_punkter_pk PRIMARY KEY (versions_id) WITH (fillfactor='10')
 );
 
+COMMENT ON TABLE greg_history.t_greg_punkter IS 'Historik tilknyttet punkter';
 
 
 CREATE TABLE greg_history.t_skitse_fl (
@@ -2154,6 +2173,7 @@ CREATE TABLE greg_history.t_skitse_fl (
 	CONSTRAINT t_skitse_fl_pk PRIMARY KEY (versions_id) WITH (fillfactor='10')
 );
 
+COMMENT ON TABLE greg_history.t_skitse_fl IS 'Historik tilknyttet flader (Skitser)';
 
 
 CREATE TABLE greg_history.t_skitse_li (
@@ -2168,6 +2188,7 @@ CREATE TABLE greg_history.t_skitse_li (
 	CONSTRAINT t_skitse_li_pk PRIMARY KEY (versions_id) WITH (fillfactor='10')
 );
 
+COMMENT ON TABLE greg_history.t_skitse_li IS 'Historik tilknyttet linier (Skitser)';
 
 
 CREATE TABLE greg_history.t_skitse_pkt (
@@ -2181,6 +2202,8 @@ CREATE TABLE greg_history.t_skitse_pkt (
 	geometri public.geometry(MultiPoint,25832) NOT NULL,
 	CONSTRAINT t_skitse_pkt_pk PRIMARY KEY (versions_id) WITH (fillfactor='10')
 );
+
+COMMENT ON TABLE greg_history.t_skitse_pkt IS 'Historik tilknyttet punkter (Skitser)';
 
 --
 -- Search path
@@ -2219,7 +2242,7 @@ SELECT
 	h.pg_distrikt_tekst,
 	a.udfoerer_entrep,
 	a.kommunal_kontakt,
-	'tlf: ' || i.telefon || ', ' || i.email AS kommunal_kontakt_info,
+	i.navn || ', tlf: ' || i.telefon AS kommunal_kontakt_info,
 	a.anlaegsaar,
 	a.klip_sider,
 	a.hoejde,
@@ -2254,7 +2277,7 @@ LEFT JOIN greg.d_basis_status e ON a.statuskode = e.statuskode
 LEFT JOIN greg.d_basis_offentlig f ON a.off_kode = f.off_kode
 LEFT JOIN greg.d_basis_underelementer g ON a.underelement_kode = g.underelement_kode
 LEFT JOIN greg.t_greg_omraader h ON a.arbejdssted = h.pg_distrikt_nr
-LEFT JOIN greg.d_basis_kommunal_kontakt i ON a.kommunal_kontakt = i.navn
+LEFT JOIN greg.d_basis_kommunal_kontakt i ON a.kommunal_kontakt = i.email
 LEFT JOIN greg.d_basis_tilstand j ON a.tilstand_kode = j.tilstand_kode
 LEFT JOIN greg.d_basis_vejnavn k ON a.vejkode = k.vejkode
 LEFT JOIN greg.d_basis_elementer l ON g.element_kode = l.element_kode
@@ -2262,6 +2285,7 @@ LEFT JOIN greg.d_basis_hovedelementer m ON l.hovedelement_kode = m.hovedelement_
 
 ORDER BY a.arbejdssted, a.underelement_kode;
 
+COMMENT ON VIEW greg.v_greg_flader IS 'Opdatérbar view for greg.t_greg_flader';
 
 
 CREATE VIEW greg.v_greg_linier AS
@@ -2291,7 +2315,7 @@ SELECT
 	h.pg_distrikt_tekst,
 	a.udfoerer_entrep,
 	a.kommunal_kontakt,
-	'tlf: ' || i.telefon || ', ' || i.email AS kommunal_kontakt_info,
+	i.navn || ', tlf: ' || i.telefon AS kommunal_kontakt_info,
 	a.anlaegsaar,
 	a.hoejde,
 	public.ST_Length(a.geometri)::numeric(10,2) AS laengde,
@@ -2325,7 +2349,7 @@ LEFT JOIN greg.d_basis_status e ON a.statuskode = e.statuskode
 LEFT JOIN greg.d_basis_offentlig f ON a.off_kode = f.off_kode
 LEFT JOIN greg.d_basis_underelementer g ON a.underelement_kode = g.underelement_kode
 LEFT JOIN greg.t_greg_omraader h ON a.arbejdssted = h.pg_distrikt_nr
-LEFT JOIN greg.d_basis_kommunal_kontakt i ON a.kommunal_kontakt = i.navn
+LEFT JOIN greg.d_basis_kommunal_kontakt i ON a.kommunal_kontakt = i.email
 LEFT JOIN greg.d_basis_tilstand j ON a.tilstand_kode = j.tilstand_kode
 LEFT JOIN greg.d_basis_vejnavn k ON a.vejkode = k.vejkode
 LEFT JOIN greg.d_basis_elementer l ON g.element_kode = l.element_kode
@@ -2333,6 +2357,7 @@ LEFT JOIN greg.d_basis_hovedelementer m ON l.hovedelement_kode = m.hovedelement_
 
 ORDER BY a.arbejdssted, a.underelement_kode;
 
+COMMENT ON VIEW greg.v_greg_linier IS 'Opdatérbar view for greg.t_greg_linier';
 
 
 CREATE VIEW greg.v_greg_omraadeliste AS
@@ -2346,11 +2371,11 @@ SELECT
 	a.pg_distrikt_type,
 	a.udfoerer,
 	a.udfoerer_kontakt1,
-	'tlf: ' || c.telefon || ', ' || c.email AS udfoerer_kontakt1_info,
+	c.navn || ', tlf: ' || c.telefon AS udfoerer_kontakt1_info,
 	a.udfoerer_kontakt2,
-	'tlf: ' || d.telefon || ', ' || d.email AS udfoerer_kontakt2_info,
+	d.navn || ', tlf: ' || d.telefon AS udfoerer_kontakt2_info,
 	a.kommunal_kontakt,
-	'tlf: ' || e.telefon || ', ' || e.email AS kommunal_kontakt_info,
+	e.navn || ', tlf: ' || e.telefon AS kommunal_kontakt_info,
 	a.vejkode,
 	f.vejnavn,
 	a.vejnr,
@@ -2361,14 +2386,15 @@ SELECT
 	a.aktiv
 FROM greg.t_greg_omraader a
 LEFT JOIN greg.d_basis_bruger_id b ON a.bruger_id = b.bruger_id
-LEFT JOIN greg.d_basis_udfoerer_kontakt c ON a.udfoerer_kontakt1 = c.navn
-LEFT JOIN greg.d_basis_udfoerer_kontakt d ON a.udfoerer_kontakt2 = d.navn
-LEFT JOIN greg.d_basis_kommunal_kontakt e ON a.kommunal_kontakt = e.navn
+LEFT JOIN greg.d_basis_udfoerer_kontakt c ON a.udfoerer_kontakt1 = c.email
+LEFT JOIN greg.d_basis_udfoerer_kontakt d ON a.udfoerer_kontakt2 = d.email
+LEFT JOIN greg.d_basis_kommunal_kontakt e ON a.kommunal_kontakt = e.email
 LEFT JOIN greg.d_basis_vejnavn f ON a.vejkode = f.vejkode
-LEFT JOIN greg.d_basis_postdistrikter g ON a.postnr = g.postdistrikt
+LEFT JOIN greg.d_basis_postdistrikter g ON a.postnr = g.postnr
 
 ORDER BY a.pg_distrikt_nr;
 
+COMMENT ON VIEW greg.v_greg_omraadeliste IS 'Opdatérbar view for greg.t_greg_omraader, dog uden tilknyttet geometri';
 
 
 CREATE VIEW greg.v_greg_omraader AS
@@ -2382,11 +2408,11 @@ SELECT
 	a.pg_distrikt_type,
 	a.udfoerer,
 	a.udfoerer_kontakt1,
-	'tlf: ' || c.telefon || ', ' || c.email AS udfoerer_kontakt1_info,
+	c.navn || ', tlf: ' || c.telefon AS udfoerer_kontakt1_info,
 	a.udfoerer_kontakt2,
-	'tlf: ' || d.telefon || ', ' || d.email AS udfoerer_kontakt2_info,
+	d.navn || ', tlf: ' || d.telefon AS udfoerer_kontakt2_info,
 	a.kommunal_kontakt,
-	'tlf: ' || e.telefon || ', ' || e.email AS kommunal_kontakt_info,
+	e.navn || ', tlf: ' || e.telefon AS kommunal_kontakt_info,
 	a.vejkode,
 	f.vejnavn,
 	a.vejnr,
@@ -2399,15 +2425,16 @@ SELECT
 	a.geometri
 FROM greg.t_greg_omraader a
 LEFT JOIN greg.d_basis_bruger_id b ON a.bruger_id = b.bruger_id
-LEFT JOIN greg.d_basis_udfoerer_kontakt c ON a.udfoerer_kontakt1 = c.navn
-LEFT JOIN greg.d_basis_udfoerer_kontakt d ON a.udfoerer_kontakt2 = d.navn
-LEFT JOIN greg.d_basis_kommunal_kontakt e ON a.kommunal_kontakt = e.navn
+LEFT JOIN greg.d_basis_udfoerer_kontakt c ON a.udfoerer_kontakt1 = c.email
+LEFT JOIN greg.d_basis_udfoerer_kontakt d ON a.udfoerer_kontakt2 = d.email
+LEFT JOIN greg.d_basis_kommunal_kontakt e ON a.kommunal_kontakt = e.email
 LEFT JOIN greg.d_basis_vejnavn f ON a.vejkode = f.vejkode
-LEFT JOIN greg.d_basis_postdistrikter g ON a.postnr = g.postdistrikt
+LEFT JOIN greg.d_basis_postdistrikter g ON a.postnr = g.postnr
 WHERE a.pg_distrikt_type NOT IN('Vejarealer') AND a.geometri IS NOT NULL
 
 ORDER BY a.pg_distrikt_nr;
 
+COMMENT ON VIEW greg.v_greg_omraader IS 'Opdatérbar view for greg.t_greg_omraader';
 
 
 CREATE VIEW greg.v_greg_punkter AS
@@ -2437,7 +2464,7 @@ SELECT
 	h.pg_distrikt_tekst,
 	a.udfoerer_entrep,
 	a.kommunal_kontakt,
-	'tlf: ' || i.telefon || ', ' || i.email AS kommunal_kontakt_info,
+	i.navn || ', tlf: ' || i.telefon AS kommunal_kontakt_info,
 	a.anlaegsaar,
 	a.diameter,
 	a.hoejde,
@@ -2467,7 +2494,7 @@ LEFT JOIN greg.d_basis_status e ON a.statuskode = e.statuskode
 LEFT JOIN greg.d_basis_offentlig f ON a.off_kode = f.off_kode
 LEFT JOIN greg.d_basis_underelementer g ON a.underelement_kode = g.underelement_kode
 LEFT JOIN greg.t_greg_omraader h ON a.arbejdssted = h.pg_distrikt_nr
-LEFT JOIN greg.d_basis_kommunal_kontakt i ON a.kommunal_kontakt = i.navn
+LEFT JOIN greg.d_basis_kommunal_kontakt i ON a.kommunal_kontakt = i.email
 LEFT JOIN greg.d_basis_tilstand j ON a.tilstand_kode = j.tilstand_kode
 LEFT JOIN greg.d_basis_vejnavn k ON a.vejkode = k.vejkode
 LEFT JOIN greg.d_basis_elementer l ON g.element_kode = l.element_kode
@@ -2480,6 +2507,8 @@ LEFT JOIN (SELECT	arbejdssted,
 		ON h.pg_distrikt_nr = n.arbejdssted
 
 ORDER BY a.arbejdssted, a.underelement_kode;
+
+COMMENT ON VIEW greg.v_greg_punkter IS 'Opdatérbar view for greg.t_greg_punkter';
 
 --
 -- CREATE VIEW (Miscellaneous)
@@ -2503,7 +2532,7 @@ SELECT
 	a.geometri
 FROM greg.t_greg_omraader a
 LEFT JOIN greg.d_basis_vejnavn b ON a.vejkode = b.vejkode
-LEFT JOIN greg.d_basis_postdistrikter c ON a.postnr = c.postdistrikt
+LEFT JOIN greg.d_basis_postdistrikter c ON a.postnr = c.postnr
 WHERE a.aktiv = 1 AND pg_distrikt_nr NOT IN(SELECT pg_distrikt_nr FROM greg.t_greg_delomraader) AND pg_distrikt_type NOT IN('Vejarealer') AND a.geometri IS NOT NULL
 
 UNION
@@ -2525,7 +2554,7 @@ SELECT
 FROM greg.t_greg_delomraader a
 LEFT JOIN greg.t_greg_omraader d ON a.pg_distrikt_nr = d.pg_distrikt_nr
 LEFT JOIN greg.d_basis_vejnavn b ON d.vejkode = b.vejkode
-LEFT JOIN greg.d_basis_postdistrikter c ON d.postnr = c.postdistrikt
+LEFT JOIN greg.d_basis_postdistrikter c ON d.postnr = c.postnr
 LEFT JOIN (SELECT
 			pg_distrikt_nr,
 				COUNT(pg_distrikt_nr) AS delomraade_total
@@ -2544,7 +2573,7 @@ CREATE VIEW greg.v_basis_kommunal_kontakt AS
 
 SELECT
 
-navn,
+email,
 navn || ', tlf: ' || telefon || ', ' || email as samling
 
 FROM greg.d_basis_kommunal_kontakt
@@ -2558,8 +2587,8 @@ CREATE VIEW greg.v_basis_postdistrikter AS
 
 SELECT
 
-postdistrikt,
-postdistrikt || ' ' || distriktnavn as distriktnavn
+postnr,
+postnr || ' ' || distriktnavn as distriktnavn
 
 FROM greg.d_basis_postdistrikter
 WHERE aktiv = 1;
@@ -2572,7 +2601,7 @@ CREATE VIEW greg.v_basis_udfoerer_kontakt AS
 
 SELECT
 
-navn,
+email,
 udfoerer|| ', '|| navn || ', tlf: ' || telefon || ', ' || email as samling
 
 FROM greg.d_basis_udfoerer_kontakt
@@ -2609,7 +2638,7 @@ SELECT
 a.hovedelement_kode,
 a.element_kode,
 a.element_kode || ' ' || a.element_tekst AS element_tekst,
-string_agg(distinct(b.objekt_type), '') AS objekt_type
+string_agg(DISTINCT(b.objekt_type), '') AS objekt_type
 
 FROM greg.d_basis_elementer a
 LEFT JOIN greg.d_basis_underelementer b ON a.element_kode = b.element_kode
@@ -2617,7 +2646,7 @@ LEFT JOIN greg.d_basis_hovedelementer c ON a.hovedelement_kode = c.hovedelement_
 WHERE a.aktiv = 1 AND c.aktiv = 1
 GROUP BY a.element_kode, element_tekst
 
-ORDER BY b.element_kode;
+ORDER BY a.element_kode;
 
 COMMENT ON VIEW greg.v_basis_elementer IS 'Look-up for d_basis_elementer';
 
@@ -2659,7 +2688,7 @@ SELECT
 	public.ST_Area(a.geometri) AS areal
 FROM greg.t_greg_omraader a
 LEFT JOIN greg.d_basis_vejnavn b ON a.vejkode = b.vejkode
-LEFT JOIN greg.d_basis_postdistrikter c ON a.postnr = c.postdistrikt
+LEFT JOIN greg.d_basis_postdistrikter c ON a.postnr = c.postnr
 WHERE a.aktiv = 1
 
 ORDER BY a.pg_distrikt_nr;
@@ -2684,6 +2713,18 @@ CREATE INDEX t_greg_omraader_gist ON greg.t_greg_omraader USING gist (geometri);
 
 CREATE INDEX t_greg_punkter_gist ON greg.t_greg_punkter USING gist (geometri);
 
+
+
+CREATE INDEX t_skitse_fl_gist ON greg.t_skitse_fl USING gist (geometri);
+
+
+
+CREATE INDEX t_skitse_li_gist ON greg.t_skitse_li USING gist (geometri);
+
+
+
+CREATE INDEX t_skitse_pkt_gist ON greg.t_skitse_pkt USING gist (geometri);
+
 --
 -- Search Path
 --
@@ -2703,6 +2744,18 @@ CREATE INDEX t_greg_linier_gist ON greg_history.t_greg_linier USING gist (geomet
 
 
 CREATE INDEX t_greg_punkter_gist ON greg_history.t_greg_punkter USING gist (geometri);
+
+
+
+CREATE INDEX t_skitse_fl_gist ON greg_history.t_skitse_fl USING gist (geometri);
+
+
+
+CREATE INDEX t_skitse_li_gist ON greg_history.t_skitse_li USING gist (geometri);
+
+
+
+CREATE INDEX t_skitse_pkt_gist ON greg_history.t_skitse_pkt USING gist (geometri);
 
 --
 -- Search Path
@@ -2922,11 +2975,6 @@ INSERT INTO greg.d_basis_pris_enhed VALUES ('kr/m2', 1);
 --
 
 INSERT INTO greg.d_basis_bruger_id VALUES ('postgres', 'Ikke angivet', 1);
-INSERT INTO greg.d_basis_bruger_id VALUES ('abren', 'Alex Brendstrup', 1);
-INSERT INTO greg.d_basis_bruger_id VALUES ('cabje', 'Casper Jensen', 1);
-INSERT INTO greg.d_basis_bruger_id VALUES ('jaman', 'Jan Andersen', 1);
-INSERT INTO greg.d_basis_bruger_id VALUES ('jmdpe', 'Jan Petersen', 1);
-INSERT INTO greg.d_basis_bruger_id VALUES ('jolil', 'Jonna Lillelund', 1);
 
 --
 -- d_basis_distrikt_type
