@@ -1,1 +1,0 @@
-COMMENT ON VIEW  IS '';
