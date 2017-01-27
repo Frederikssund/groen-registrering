@@ -20,6 +20,26 @@ Alle filer er sat op til Frederikssund Kommunes interne server, og disse skal æ
 **f-pgsql01.ad.frederikssund.dk** erstattes med **localhost** eller anden tilgængelig server.
 Alle logins til Excel-ark og QGIS benytter user: 'qgis_reader' password: 'qgis_reader'.
 
+Grundet links til andre databaser internt i Frederikssund Kommune vil der være nogle lag, som ikke kan findes og således ses som *bad layers*.
+Det omfatter følgende:
+- Kommunale vej
+- Privat fællesveje
+- Bygrænse
+- Kyst
+- Bygning
+- VEJKANT
+- Kommunegrænse
+- Matrikelskel
+- Skov
+- Sø
+
+Er de views fra filen *v_aendring* ikke kørt ind i databasen, vil yderligere tre lag ses som *bad layers*:
+- Punkter - 14 dage
+- Linier - 14 dage
+- Flader - 14 dage
+
+Her trykkes der bare på krydset.
+
 
 ### Indhold
 
