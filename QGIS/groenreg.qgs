@@ -6165,10 +6165,10 @@ def my_form_open(dialog, layer, feature):
         </symbols>
       </renderer-v2>
       <labeling type="rule-based">
-        <rules key="{c09d861e-3776-42f8-b80c-d43d95a00d35}">
-          <rule filter="&quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;hovedelement_kode&quot; IN ('HÆ')&#xd;&#xa;" key="{e3c781a3-4dbc-4de6-956c-4b8b55d23b5c}">
+        <rules key="{6a583faa-bd9d-4edc-88b6-c0b253f97229}">
+          <rule filter="&quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;hovedelement_kode&quot; IN ('HÆ')&#xd;&#xa;" key="{2df107aa-1f0a-469d-8dee-260242240c03}">
             <settings>
-              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="9" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
+              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="6" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
                 <substitutions/>
               </text-style>
               <text-format placeDirectionSymbol="0" multilineAlign="0" rightDirectionSymbol=">" multilineHeight="1" plussign="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" formatNumbers="0" decimals="3" wrapChar="" reverseDirectionSymbol="0"/>
@@ -6180,13 +6180,13 @@ def my_form_open(dialog, layer, feature):
               <data-defined/>
             </settings>
           </rule>
-          <rule filter="&quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0 &#xd;&#xa;and &quot;hovedelement_kode&quot; not IN ('HÆ', 'ANA', 'UD', 'VA') &#xd;&#xa;and &quot;element_kode&quot; not IN ('') &#xd;&#xa;and &quot;underelement_kode&quot; not IN ('') " key="{8e0ab8c8-65c5-429b-a03b-8c71f3cb6bbe}">
+          <rule filter="&quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0 &#xd;&#xa;and &quot;hovedelement_kode&quot; not IN ('HÆ', 'ANA', 'UD', 'VA') &#xd;&#xa;and &quot;element_kode&quot; not IN ('') &#xd;&#xa;and &quot;underelement_kode&quot; not IN ('') " key="{b41128c1-f8f5-412c-8f04-4acd5c78c8de}">
             <settings>
-              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="0" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="9" fieldName="underelement_kode" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
+              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="0" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="6" fieldName="underelement_kode" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
                 <substitutions/>
               </text-style>
               <text-format placeDirectionSymbol="0" multilineAlign="0" rightDirectionSymbol=">" multilineHeight="1" plussign="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" formatNumbers="0" decimals="3" wrapChar="" reverseDirectionSymbol="0"/>
-              <text-buffer bufferSize="0.6000000000000001" bufferSizeMapUnitScale="0,0,0,0,0,0" bufferColor="255,255,255,255" bufferDraw="1" bufferBlendMode="0" bufferTransp="0" bufferSizeInMapUnits="0" bufferNoFill="0" bufferJoinStyle="64"/>
+              <text-buffer bufferSize="0.6" bufferSizeMapUnitScale="0,0,0,0,0,0" bufferColor="255,255,255,255" bufferDraw="1" bufferBlendMode="0" bufferTransp="0" bufferSizeInMapUnits="0" bufferNoFill="0" bufferJoinStyle="64"/>
               <background shapeSizeUnits="1" shapeType="0" shapeSVGFile="" shapeOffsetX="0" shapeOffsetY="0" shapeBlendMode="0" shapeFillColor="255,255,255,255" shapeTransparency="0" shapeSizeMapUnitScale="0,0,0,0,0,0" shapeSizeType="0" shapeJoinStyle="64" shapeDraw="0" shapeBorderWidthUnits="1" shapeSizeX="0" shapeSizeY="0" shapeOffsetMapUnitScale="0,0,0,0,0,0" shapeRadiiX="0" shapeRadiiY="0" shapeOffsetUnits="1" shapeRotation="0" shapeBorderWidth="0" shapeBorderColor="128,128,128,255" shapeRotationType="0" shapeBorderWidthMapUnitScale="0,0,0,0,0,0" shapeRadiiMapUnitScale="0,0,0,0,0,0" shapeRadiiUnits="1"/>
               <shadow shadowOffsetMapUnitScale="0,0,0,0,0,0" shadowOffsetGlobal="1" shadowRadiusUnits="1" shadowTransparency="30" shadowColor="0,0,0,255" shadowUnder="0" shadowScale="100" shadowOffsetDist="1" shadowDraw="0" shadowOffsetAngle="135" shadowRadius="1.5" shadowRadiusMapUnitScale="0,0,0,0,0,0" shadowBlendMode="6" shadowRadiusAlphaOnly="0" shadowOffsetUnits="1"/>
               <placement repeatDistanceUnit="1" placement="0" maxCurvedCharAngleIn="20" repeatDistance="0" distInMapUnits="0" labelOffsetInMapUnits="1" xOffset="0" distMapUnitScale="0,0,0,0,0,0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" preserveRotation="1" repeatDistanceMapUnitScale="0,0,0,0,0,0" centroidWhole="0" priority="5" yOffset="0" offsetType="0" placementFlags="10" centroidInside="1" dist="0" angleOffset="0" maxCurvedCharAngleOut="-20" fitInPolygonOnly="0" quadOffset="4" labelOffsetMapUnitScale="0,0,0,0,0,0"/>
@@ -8476,7 +8476,7 @@ def my_form_open(dialog, layer, feature):
         <fieldstyles/>
       </conditionalstyles>
     </maplayer>
-    <maplayer simplifyAlgorithm="0" minimumScale="1e-09" maximumScale="10000" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+    <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="10000" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>Linier_copy20161221144339293</id>
       <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiLineString table="greg"."v_greg_linier" (geometri) sql=</datasource>
       <keywordList>
@@ -9127,10 +9127,10 @@ def my_form_open(dialog, layer, feature):
         </symbols>
       </renderer-v2>
       <labeling type="rule-based">
-        <rules key="{71c094d2-16cd-4e3e-9777-39c20366ff64}">
-          <rule filter=" &quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;element_kode&quot; IN ('BL-05') " key="{5f7f7d26-980c-43db-ae4e-542116ccf73d}">
+        <rules key="{5350ba89-f0a5-480f-8c9b-eb364d3c7327}">
+          <rule filter=" &quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;element_kode&quot; IN ('BL-05') " key="{b08b5733-2b38-4bf7-bd20-8b7bf4401f89}">
             <settings>
-              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="9" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
+              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="6" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
                 <substitutions/>
               </text-style>
               <text-format placeDirectionSymbol="0" multilineAlign="0" rightDirectionSymbol=">" multilineHeight="1" plussign="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" formatNumbers="0" decimals="3" wrapChar="" reverseDirectionSymbol="0"/>
@@ -9281,8 +9281,8 @@ def my_form_open(dialog, layer, feature):
         <property key="labeling/xOffset" value="0"/>
         <property key="labeling/yOffset" value="0"/>
         <property key="labeling/zIndex" value="0"/>
-        <property key="variableNames" value="_fields_"/>
-        <property key="variableValues" value=""/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
@@ -12159,7 +12159,7 @@ def my_form_open(dialog, layer, feature):
         <fieldstyles/>
       </conditionalstyles>
     </maplayer>
-    <maplayer simplifyAlgorithm="0" minimumScale="1e-09" maximumScale="10000" simplifyDrawingHints="0" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+    <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="10000" simplifyDrawingHints="0" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>Punkter_copy20161221144333406</id>
       <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiPoint table="greg"."v_greg_punkter" (geometri) sql=</datasource>
       <keywordList>
@@ -12999,10 +12999,10 @@ def my_form_open(dialog, layer, feature):
         </symbols>
       </renderer-v2>
       <labeling type="rule-based">
-        <rules key="{3caa1d2f-2697-4772-960e-60a9ecb02276}">
-          <rule filter=" &quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;element_kode&quot; IN ('BL-05')" key="{7c2bcee8-9ea7-4e7d-9d1e-47d351498ccb}">
+        <rules key="{a71e1c35-09bf-42a6-8102-22cde3fb55ef}">
+          <rule filter=" &quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;element_kode&quot; IN ('BL-05')" key="{66e58925-e38e-4ffc-a79d-8ff66dc46bb3}">
             <settings>
-              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="9" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
+              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="6" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
                 <substitutions/>
               </text-style>
               <text-format placeDirectionSymbol="0" multilineAlign="0" rightDirectionSymbol=">" multilineHeight="1" plussign="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" formatNumbers="0" decimals="3" wrapChar="" reverseDirectionSymbol="0"/>
@@ -13153,8 +13153,8 @@ def my_form_open(dialog, layer, feature):
         <property key="labeling/xOffset" value="0"/>
         <property key="labeling/yOffset" value="0"/>
         <property key="labeling/zIndex" value="0"/>
-        <property key="variableNames" value="_fields_"/>
-        <property key="variableValues" value=""/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
