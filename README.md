@@ -3,6 +3,7 @@ System til registrering af grønne områder i Frederikssund Kommune.
 
 
 Af Casper Bertelsen, Have- og parkingenigørstuderende
+
 Udarbejdet
 - i forbindelse med praktikophold Sept '16 - Jan '17
 - i samarbejde med
