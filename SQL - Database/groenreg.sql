@@ -74,8 +74,16 @@ tgp AS (
 			a.versions_id,
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
-			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
+			CASE
+				WHEN a.underelement_kode NOT IN(SELECT underelement_kode FROM greg.d_basis_underelementer)
+				THEN a.underelement_kode
+				ELSE a.underelement_kode || ' ' || b.underelement_tekst
+			END AS element,
+			CASE
+				WHEN a.arbejdssted NOT IN(SELECT pg_distrikt_nr FROM greg.t_greg_omraader)
+				THEN a.arbejdssted::text
+				ELSE a.arbejdssted || ' ' || c.pg_distrikt_tekst
+			END AS arbejdssted,
 			'P'::text AS objekt_type,
 			''::text AS note
 		FROM greg.t_greg_punkter a
@@ -94,8 +102,16 @@ tghp AS (
 				ELSE 'Ændring'::text
 			END AS handling,
 			a.systid_til::timestamp(0) AS dato,
-			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
+			CASE
+				WHEN a.underelement_kode NOT IN(SELECT underelement_kode FROM greg.d_basis_underelementer)
+				THEN a.underelement_kode
+				ELSE a.underelement_kode || ' ' || b.underelement_tekst
+			END AS element,
+			CASE
+				WHEN a.arbejdssted NOT IN(SELECT pg_distrikt_nr FROM greg.t_greg_omraader)
+				THEN a.arbejdssted::text
+				ELSE a.arbejdssted || ' ' || c.pg_distrikt_tekst
+			END AS arbejdssted,
 			'P'::text AS objekt_type,
 			CASE
 				WHEN EXTRACT (YEAR FROM a.oprettet) = $1
@@ -114,8 +130,16 @@ tghpo AS (
 			a.versions_id,
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
-			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
+			CASE
+				WHEN a.underelement_kode NOT IN(SELECT underelement_kode FROM greg.d_basis_underelementer)
+				THEN a.underelement_kode
+				ELSE a.underelement_kode || ' ' || b.underelement_tekst
+			END AS element,
+			CASE
+				WHEN a.arbejdssted NOT IN(SELECT pg_distrikt_nr FROM greg.t_greg_omraader)
+				THEN a.arbejdssted::text
+				ELSE a.arbejdssted || ' ' || c.pg_distrikt_tekst
+			END AS arbejdssted,
 			'P'::text AS objekt_type,
 			''::text AS note
 		FROM greg_history.t_greg_punkter a
@@ -130,8 +154,16 @@ tgl AS (
 			a.versions_id,
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
-			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
+			CASE
+				WHEN a.underelement_kode NOT IN(SELECT underelement_kode FROM greg.d_basis_underelementer)
+				THEN a.underelement_kode
+				ELSE a.underelement_kode || ' ' || b.underelement_tekst
+			END AS element,
+			CASE
+				WHEN a.arbejdssted NOT IN(SELECT pg_distrikt_nr FROM greg.t_greg_omraader)
+				THEN a.arbejdssted::text
+				ELSE a.arbejdssted || ' ' || c.pg_distrikt_tekst
+			END AS arbejdssted,
 			'L'::text AS objekt_type,
 			''::text AS note
 		FROM greg.t_greg_linier a
@@ -150,8 +182,16 @@ tghl AS (
 				ELSE 'Ændring'::text
 			END AS handling,
 			a.systid_til::timestamp(0) AS dato,
-			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
+			CASE
+				WHEN a.underelement_kode NOT IN(SELECT underelement_kode FROM greg.d_basis_underelementer)
+				THEN a.underelement_kode
+				ELSE a.underelement_kode || ' ' || b.underelement_tekst
+			END AS element,
+			CASE
+				WHEN a.arbejdssted NOT IN(SELECT pg_distrikt_nr FROM greg.t_greg_omraader)
+				THEN a.arbejdssted::text
+				ELSE a.arbejdssted || ' ' || c.pg_distrikt_tekst
+			END AS arbejdssted,
 			'L'::text AS objekt_type,
 			CASE
 				WHEN EXTRACT (YEAR FROM a.oprettet) = $1
@@ -170,8 +210,16 @@ tghlo AS (
 			a.versions_id,
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
-			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
+			CASE
+				WHEN a.underelement_kode NOT IN(SELECT underelement_kode FROM greg.d_basis_underelementer)
+				THEN a.underelement_kode
+				ELSE a.underelement_kode || ' ' || b.underelement_tekst
+			END AS element,
+			CASE
+				WHEN a.arbejdssted NOT IN(SELECT pg_distrikt_nr FROM greg.t_greg_omraader)
+				THEN a.arbejdssted::text
+				ELSE a.arbejdssted || ' ' || c.pg_distrikt_tekst
+			END AS arbejdssted,
 			'L'::text AS objekt_type,
 			''::text AS note
 		FROM greg_history.t_greg_linier a
@@ -186,8 +234,16 @@ tgf AS (
 			a.versions_id,
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
-			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
+			CASE
+				WHEN a.underelement_kode NOT IN(SELECT underelement_kode FROM greg.d_basis_underelementer)
+				THEN a.underelement_kode
+				ELSE a.underelement_kode || ' ' || b.underelement_tekst
+			END AS element,
+			CASE
+				WHEN a.arbejdssted NOT IN(SELECT pg_distrikt_nr FROM greg.t_greg_omraader)
+				THEN a.arbejdssted::text
+				ELSE a.arbejdssted || ' ' || c.pg_distrikt_tekst
+			END AS arbejdssted,
 			'F'::text AS objekt_type,
 			''::text AS note
 		FROM greg.t_greg_flader a
@@ -206,8 +262,16 @@ tghf AS (
 				ELSE 'Ændring'::text
 			END AS handling,
 			a.systid_til::timestamp(0) AS dato,
-			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
+			CASE
+				WHEN a.underelement_kode NOT IN(SELECT underelement_kode FROM greg.d_basis_underelementer)
+				THEN a.underelement_kode
+				ELSE a.underelement_kode || ' ' || b.underelement_tekst
+			END AS element,
+			CASE
+				WHEN a.arbejdssted NOT IN(SELECT pg_distrikt_nr FROM greg.t_greg_omraader)
+				THEN a.arbejdssted::text
+				ELSE a.arbejdssted || ' ' || c.pg_distrikt_tekst
+			END AS arbejdssted,
 			'F'::text AS objekt_type,
 			CASE
 				WHEN EXTRACT (YEAR FROM a.oprettet) = $1
@@ -226,8 +290,16 @@ tghfo AS (
 			a.versions_id,
 			'Tilføjet'::text AS handling,
 			a.systid_fra::timestamp(0) AS dato,
-			a.underelement_kode || ' ' || b.underelement_tekst AS element,
-			a.arbejdssted || ' ' || c.pg_distrikt_tekst AS arbejdssted,
+			CASE
+				WHEN a.underelement_kode NOT IN(SELECT underelement_kode FROM greg.d_basis_underelementer)
+				THEN a.underelement_kode
+				ELSE a.underelement_kode || ' ' || b.underelement_tekst
+			END AS element,
+			CASE
+				WHEN a.arbejdssted NOT IN(SELECT pg_distrikt_nr FROM greg.t_greg_omraader)
+				THEN a.arbejdssted::text
+				ELSE a.arbejdssted || ' ' || c.pg_distrikt_tekst
+			END AS arbejdssted,
 			'F'::text AS objekt_type,
 			''::text AS note
 		FROM greg_history.t_greg_flader a
@@ -3162,6 +3234,7 @@ INSERT INTO greg.d_basis_underelementer VALUES ('BE-06', 'BE-06-01', 'Andet fald
 INSERT INTO greg.d_basis_underelementer VALUES ('BE-06', 'BE-06-02', 'Faldgrus', 'F', 0.00, 0.00, 'kr/m2', 1);
 INSERT INTO greg.d_basis_underelementer VALUES ('BE-06', 'BE-06-03', 'Faldsand', 'F', 0.00, 0.00, 'kr/m2', 1);
 INSERT INTO greg.d_basis_underelementer VALUES ('BE-06', 'BE-06-04', 'Gummifliser', 'F', 0.00, 0.00, 'kr/m2', 1);
+INSERT INTO greg.d_basis_underelementer VALUES ('BE-06', 'BE-06-05', 'Støbt gummi', 'F', 0.00, 0.00, 'kr/m2', 1);
 INSERT INTO greg.d_basis_underelementer VALUES ('UD-00', 'UD-00-00', 'Terrænudstyr', 'FLP', 0.00, 0.00, 'kr/stk', 1);
 INSERT INTO greg.d_basis_underelementer VALUES ('UD-01', 'UD-01-01', 'Andet terrænudstyr', 'FLP', 0.00, 0.00, 'kr/stk', 1);
 INSERT INTO greg.d_basis_underelementer VALUES ('UD-01', 'UD-01-02', 'Skilt', 'P', 0.00, 0.00, 'kr/stk', 1);

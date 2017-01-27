@@ -17,7 +17,7 @@ SELECT
 	a.pg_distrikt_type AS arealtype
 FROM greg.t_greg_omraader a
 LEFT JOIN greg.d_basis_vejnavn b ON a.vejkode = b.vejkode
-LEFT JOIN greg.d_basis_postdistrikter c ON a.postnr = c.postdistrikt
+LEFT JOIN greg.d_basis_postdistrikter c ON a.postnr = c.postnr
 WHERE a.aktiv = 1
 
 ORDER BY a.pg_distrikt_nr;
