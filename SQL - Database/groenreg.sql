@@ -2333,10 +2333,10 @@ SELECT
 	public.ST_Area(a.geometri)::numeric(10,2) AS areal,
 	public.ST_Perimeter(a.geometri)::numeric(10,2) AS omkreds,
 	CASE
-		WHEN LEFT(a.underelement_kode,2) LIKE 'HÆ'
-		THEN (g.enhedspris * public.ST_Area(a.geometri) + g.enhedspris_klip * (public.ST_Area(a.geometri) + a.klip_sider * a.hoejde * public.ST_Perimeter(a.geometri) /2))::numeric(10,2)
 		WHEN g.enhedspris = 0 AND g.enhedspris_klip = 0
 		THEN NULL
+		WHEN LEFT(a.underelement_kode,2) LIKE 'HÆ'
+		THEN (g.enhedspris * public.ST_Area(a.geometri) + g.enhedspris_klip * (public.ST_Area(a.geometri) + a.klip_sider * a.hoejde * public.ST_Perimeter(a.geometri) /2))::numeric(10,2)
 		ELSE (g.enhedspris * public.ST_Area(a.geometri))::numeric(10,2)
 	END AS element_pris,
 	h.aktiv,
@@ -2405,10 +2405,10 @@ SELECT
 	k.vejnavn,
 	a.link,
 	CASE
-		WHEN a.underelement_kode = 'BL-05-02'
-		THEN (g.enhedspris * public.ST_Length(a.geometri) + g.enhedspris_klip * (public.ST_Length(a.geometri) * a.hoejde))::numeric(10,2)
 		WHEN g.enhedspris = 0 AND g.enhedspris_klip = 0
 		THEN NULL
+		WHEN a.underelement_kode = 'BL-05-02'
+		THEN (g.enhedspris * public.ST_Length(a.geometri) + g.enhedspris_klip * (public.ST_Length(a.geometri) * a.hoejde))::numeric(10,2)
 		ELSE (g.enhedspris * public.ST_Length(a.geometri))::numeric(10,2)
 	END AS element_pris,
 	h.aktiv,
