@@ -72,7 +72,7 @@ LEFT JOIN greg.d_basis_underelementer c ON a.underelement_kode = c.underelement_
 LEFT JOIN (	SELECT	arbejdssted,
 					SUM(ST_Area(geometri)) AS areal
 				FROM greg.t_greg_flader
-				WHERE LEFT(underelement_kode, 3) NOT IN ('ANA', 'VA-')
+				WHERE LEFT(underelement_kode, 3) NOT IN ('ANA', 'VA-', 'BE-')
 				GROUP BY arbejdssted) e 
 			ON b.pg_distrikt_nr = e.arbejdssted
 WHERE a.underelement_kode ILIKE 'REN%' AND b.aktiv = 1

@@ -1891,7 +1891,7 @@
         <ymax>6202860.2799937603995204</ymax>
       </extent>
       <id>Flader_copy20161206121234968</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiPolygon table="greg"."v_greg_flader" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiPolygon table="greg"."v_greg_flader" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -4577,7 +4577,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="10000" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>Flader_copy20161221144344525</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiPolygon table="greg"."v_greg_flader" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiPolygon table="greg"."v_greg_flader" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -6165,10 +6165,10 @@ def my_form_open(dialog, layer, feature):
         </symbols>
       </renderer-v2>
       <labeling type="rule-based">
-        <rules key="{c09d861e-3776-42f8-b80c-d43d95a00d35}">
-          <rule filter="&quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;hovedelement_kode&quot; IN ('HÆ')&#xd;&#xa;" key="{e3c781a3-4dbc-4de6-956c-4b8b55d23b5c}">
+        <rules key="{6a583faa-bd9d-4edc-88b6-c0b253f97229}">
+          <rule filter="&quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;hovedelement_kode&quot; IN ('HÆ')&#xd;&#xa;" key="{2df107aa-1f0a-469d-8dee-260242240c03}">
             <settings>
-              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="9" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
+              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="6" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
                 <substitutions/>
               </text-style>
               <text-format placeDirectionSymbol="0" multilineAlign="0" rightDirectionSymbol=">" multilineHeight="1" plussign="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" formatNumbers="0" decimals="3" wrapChar="" reverseDirectionSymbol="0"/>
@@ -6180,13 +6180,13 @@ def my_form_open(dialog, layer, feature):
               <data-defined/>
             </settings>
           </rule>
-          <rule filter="&quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0 &#xd;&#xa;and &quot;hovedelement_kode&quot; not IN ('HÆ', 'ANA', 'UD', 'VA') &#xd;&#xa;and &quot;element_kode&quot; not IN ('') &#xd;&#xa;and &quot;underelement_kode&quot; not IN ('') " key="{8e0ab8c8-65c5-429b-a03b-8c71f3cb6bbe}">
+          <rule filter="&quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0 &#xd;&#xa;and &quot;hovedelement_kode&quot; not IN ('HÆ', 'ANA', 'UD', 'VA') &#xd;&#xa;and &quot;element_kode&quot; not IN ('') &#xd;&#xa;and &quot;underelement_kode&quot; not IN ('') " key="{b41128c1-f8f5-412c-8f04-4acd5c78c8de}">
             <settings>
-              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="0" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="9" fieldName="underelement_kode" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
+              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="0" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="6" fieldName="underelement_kode" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
                 <substitutions/>
               </text-style>
               <text-format placeDirectionSymbol="0" multilineAlign="0" rightDirectionSymbol=">" multilineHeight="1" plussign="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" formatNumbers="0" decimals="3" wrapChar="" reverseDirectionSymbol="0"/>
-              <text-buffer bufferSize="0.6000000000000001" bufferSizeMapUnitScale="0,0,0,0,0,0" bufferColor="255,255,255,255" bufferDraw="1" bufferBlendMode="0" bufferTransp="0" bufferSizeInMapUnits="0" bufferNoFill="0" bufferJoinStyle="64"/>
+              <text-buffer bufferSize="0.6" bufferSizeMapUnitScale="0,0,0,0,0,0" bufferColor="255,255,255,255" bufferDraw="1" bufferBlendMode="0" bufferTransp="0" bufferSizeInMapUnits="0" bufferNoFill="0" bufferJoinStyle="64"/>
               <background shapeSizeUnits="1" shapeType="0" shapeSVGFile="" shapeOffsetX="0" shapeOffsetY="0" shapeBlendMode="0" shapeFillColor="255,255,255,255" shapeTransparency="0" shapeSizeMapUnitScale="0,0,0,0,0,0" shapeSizeType="0" shapeJoinStyle="64" shapeDraw="0" shapeBorderWidthUnits="1" shapeSizeX="0" shapeSizeY="0" shapeOffsetMapUnitScale="0,0,0,0,0,0" shapeRadiiX="0" shapeRadiiY="0" shapeOffsetUnits="1" shapeRotation="0" shapeBorderWidth="0" shapeBorderColor="128,128,128,255" shapeRotationType="0" shapeBorderWidthMapUnitScale="0,0,0,0,0,0" shapeRadiiMapUnitScale="0,0,0,0,0,0" shapeRadiiUnits="1"/>
               <shadow shadowOffsetMapUnitScale="0,0,0,0,0,0" shadowOffsetGlobal="1" shadowRadiusUnits="1" shadowTransparency="30" shadowColor="0,0,0,255" shadowUnder="0" shadowScale="100" shadowOffsetDist="1" shadowDraw="0" shadowOffsetAngle="135" shadowRadius="1.5" shadowRadiusMapUnitScale="0,0,0,0,0,0" shadowBlendMode="6" shadowRadiusAlphaOnly="0" shadowOffsetUnits="1"/>
               <placement repeatDistanceUnit="1" placement="0" maxCurvedCharAngleIn="20" repeatDistance="0" distInMapUnits="0" labelOffsetInMapUnits="1" xOffset="0" distMapUnitScale="0,0,0,0,0,0" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" preserveRotation="1" repeatDistanceMapUnitScale="0,0,0,0,0,0" centroidWhole="0" priority="5" yOffset="0" offsetType="0" placementFlags="10" centroidInside="1" dist="0" angleOffset="0" maxCurvedCharAngleOut="-20" fitInPolygonOnly="0" quadOffset="4" labelOffsetMapUnitScale="0,0,0,0,0,0"/>
@@ -7083,7 +7083,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="1e-09" maximumScale="5000" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="1" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>Linier_copy20161206121230150</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiLineString table="greg"."v_greg_linier" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiLineString table="greg"."v_greg_linier" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -8476,9 +8476,9 @@ def my_form_open(dialog, layer, feature):
         <fieldstyles/>
       </conditionalstyles>
     </maplayer>
-    <maplayer simplifyAlgorithm="0" minimumScale="1e-09" maximumScale="10000" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+    <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="10000" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>Linier_copy20161221144339293</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiLineString table="greg"."v_greg_linier" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiLineString table="greg"."v_greg_linier" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -9127,10 +9127,10 @@ def my_form_open(dialog, layer, feature):
         </symbols>
       </renderer-v2>
       <labeling type="rule-based">
-        <rules key="{71c094d2-16cd-4e3e-9777-39c20366ff64}">
-          <rule filter=" &quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;element_kode&quot; IN ('BL-05') " key="{5f7f7d26-980c-43db-ae4e-542116ccf73d}">
+        <rules key="{5350ba89-f0a5-480f-8c9b-eb364d3c7327}">
+          <rule filter=" &quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;element_kode&quot; IN ('BL-05') " key="{b08b5733-2b38-4bf7-bd20-8b7bf4401f89}">
             <settings>
-              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="9" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
+              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="6" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
                 <substitutions/>
               </text-style>
               <text-format placeDirectionSymbol="0" multilineAlign="0" rightDirectionSymbol=">" multilineHeight="1" plussign="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" formatNumbers="0" decimals="3" wrapChar="" reverseDirectionSymbol="0"/>
@@ -9281,8 +9281,8 @@ def my_form_open(dialog, layer, feature):
         <property key="labeling/xOffset" value="0"/>
         <property key="labeling/yOffset" value="0"/>
         <property key="labeling/zIndex" value="0"/>
-        <property key="variableNames" value="_fields_"/>
-        <property key="variableValues" value=""/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
@@ -10020,7 +10020,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>6202738.09999370016157627</ymax>
       </extent>
       <id>Punkter_copy20161206121227811</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiPoint table="greg"."v_greg_punkter" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiPoint table="greg"."v_greg_punkter" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -12159,9 +12159,9 @@ def my_form_open(dialog, layer, feature):
         <fieldstyles/>
       </conditionalstyles>
     </maplayer>
-    <maplayer simplifyAlgorithm="0" minimumScale="1e-09" maximumScale="10000" simplifyDrawingHints="0" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+    <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="10000" simplifyDrawingHints="0" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>Punkter_copy20161221144333406</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiPoint table="greg"."v_greg_punkter" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiPoint table="greg"."v_greg_punkter" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -12999,10 +12999,10 @@ def my_form_open(dialog, layer, feature):
         </symbols>
       </renderer-v2>
       <labeling type="rule-based">
-        <rules key="{3caa1d2f-2697-4772-960e-60a9ecb02276}">
-          <rule filter=" &quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;element_kode&quot; IN ('BL-05')" key="{7c2bcee8-9ea7-4e7d-9d1e-47d351498ccb}">
+        <rules key="{a71e1c35-09bf-42a6-8102-22cde3fb55ef}">
+          <rule filter=" &quot;arbejdssted&quot; = attribute(@atlas_feature, 'pg_distrikt_nr') &#xd;&#xa;and distance ( $geometry,@atlas_geometry ) = 0&#xd;&#xa;and  &quot;element_kode&quot; IN ('BL-05')" key="{66e58925-e38e-4ffc-a79d-8ff66dc46bb3}">
             <settings>
-              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="9" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
+              <text-style fontItalic="0" fontFamily="MS Shell Dlg 2" fontLetterSpacing="0" fontUnderline="0" fontWeight="50" fontStrikeout="0" textTransp="0" previewBkgrdColor="#ffffff" fontCapitals="0" textColor="0,0,0,255" fontSizeInMapUnits="0" isExpression="1" blendMode="0" fontSizeMapUnitScale="0,0,0,0,0,0" fontSize="6" fieldName="underelement_kode || ' (' || &quot;litra&quot;||')'" namedStyle="Normal" fontWordSpacing="0" useSubstitutions="0">
                 <substitutions/>
               </text-style>
               <text-format placeDirectionSymbol="0" multilineAlign="0" rightDirectionSymbol=">" multilineHeight="1" plussign="0" addDirectionSymbol="0" leftDirectionSymbol="&lt;" formatNumbers="0" decimals="3" wrapChar="" reverseDirectionSymbol="0"/>
@@ -13153,8 +13153,8 @@ def my_form_open(dialog, layer, feature):
         <property key="labeling/xOffset" value="0"/>
         <property key="labeling/yOffset" value="0"/>
         <property key="labeling/zIndex" value="0"/>
-        <property key="variableNames" value="_fields_"/>
-        <property key="variableValues" value=""/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
@@ -13391,7 +13391,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_ansvarlig_myndighed20161206101802549</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='cvr_kode' table="greg"."d_basis_ansvarlig_myndighed" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='cvr_kode' table="greg"."d_basis_ansvarlig_myndighed" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -13494,7 +13494,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_bruger_id20161206101802586</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='bruger_id' table="greg"."d_basis_bruger_id" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='bruger_id' table="greg"."d_basis_bruger_id" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -13587,7 +13587,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_distrikt_type20161206101802616</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='pg_distrikt_type' table="greg"."d_basis_distrikt_type" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='pg_distrikt_type' table="greg"."d_basis_distrikt_type" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -13674,7 +13674,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_elementer20161206101802644</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='element_kode' table="greg"."d_basis_elementer" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='element_kode' table="greg"."d_basis_elementer" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -13777,7 +13777,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_hovedelementer20161206101802671</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='hovedelement_kode' table="greg"."d_basis_hovedelementer" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='hovedelement_kode' table="greg"."d_basis_hovedelementer" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -13870,7 +13870,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_kommunal_kontakt20161206101802699</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='navn' table="greg"."d_basis_kommunal_kontakt" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='email' table="greg"."d_basis_kommunal_kontakt" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -13970,7 +13970,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_offentlig20161206101802733</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='off_kode' table="greg"."d_basis_offentlig" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='off_kode' table="greg"."d_basis_offentlig" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -14063,7 +14063,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_omraadenr20161208095434771</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='pg_distrikt_nr' table="greg"."d_basis_omraadenr" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='pg_distrikt_nr' table="greg"."d_basis_omraadenr" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -14145,7 +14145,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_oprindelse20161206101802760</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='oprindkode' table="greg"."d_basis_oprindelse" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='oprindkode' table="greg"."d_basis_oprindelse" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -14244,7 +14244,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_postdistrikter20161206101802793</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='postdistrikt' table="greg"."d_basis_postdistrikter" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='postnr' table="greg"."d_basis_postdistrikter" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -14261,14 +14261,18 @@ def my_form_open(dialog, layer, feature):
           <geographicflag>true</geographicflag>
         </spatialrefsys>
       </srs>
-      <customproperties/>
+      <customproperties>
+        <property key="embeddedWidgets/count" value="0"/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
+      </customproperties>
       <provider encoding="UTF-8">postgres</provider>
       <previewExpression></previewExpression>
       <vectorjoins/>
       <layerDependencies/>
       <expressionfields/>
       <defaults>
-        <default field="postdistrikt" expression=""/>
+        <default field="postnr" expression=""/>
         <default field="distriktnavn" expression=""/>
         <default field="aktiv" expression=""/>
       </defaults>
@@ -14276,7 +14280,7 @@ def my_form_open(dialog, layer, feature):
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
-        <edittype widgetv2type="TextEdit" name="postdistrikt">
+        <edittype widgetv2type="TextEdit" name="postnr">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="distriktnavn">
@@ -14291,7 +14295,7 @@ def my_form_open(dialog, layer, feature):
       </edittypes>
       <annotationform>16_10_18 - 1942</annotationform>
       <aliases>
-        <alias field="postdistrikt" index="0" name="Postdistrikt"/>
+        <alias field="postnr" index="0" name="Postnr"/>
         <alias field="distriktnavn" index="1" name="Distriktnavn"/>
         <alias field="aktiv" index="2" name="Aktiv"/>
       </aliases>
@@ -14300,11 +14304,10 @@ def my_form_open(dialog, layer, feature):
       <attributeactions default="-1"/>
       <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="6357100">
         <columns>
-          <column width="-1" hidden="0" type="field" name="postdistrikt"/>
           <column width="-1" hidden="0" type="field" name="distriktnavn"/>
           <column width="-1" hidden="0" type="field" name="aktiv"/>
-          <column width="-1" hidden="1" type="field" name="samling"/>
           <column width="-1" hidden="1" type="actions"/>
+          <column width="-1" hidden="0" type="field" name="postnr"/>
         </columns>
       </attributetableconfig>
       <editform>16_10_18 - 1942</editform>
@@ -14338,7 +14341,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_pris_enhed20161206101802822</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='pris_enhed' table="greg"."d_basis_pris_enhed" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='pris_enhed' table="greg"."d_basis_pris_enhed" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -14425,7 +14428,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_status20161206101802853</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='statuskode' table="greg"."d_basis_status" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='statuskode' table="greg"."d_basis_status" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -14518,7 +14521,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_tilstand20161206101802882</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='tilstand_kode' table="greg"."d_basis_tilstand" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='tilstand_kode' table="greg"."d_basis_tilstand" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -14617,7 +14620,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_udfoerer20161206101802919</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='udfoerer' table="greg"."d_basis_udfoerer" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='udfoerer' table="greg"."d_basis_udfoerer" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -14704,7 +14707,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_udfoerer_entrep20161206101802947</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='navn' table="greg"."d_basis_udfoerer_entrep" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='navn' table="greg"."d_basis_udfoerer_entrep" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -14791,7 +14794,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_udfoerer_kontakt20161206101802976</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='navn' table="greg"."d_basis_udfoerer_kontakt" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='email' table="greg"."d_basis_udfoerer_kontakt" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -14900,7 +14903,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_underelementer20161206101803006</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='underelement_kode' table="greg"."d_basis_underelementer" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='underelement_kode' table="greg"."d_basis_underelementer" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -15035,7 +15038,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>d_basis_vejnavn20161206101803035</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='vejkode' table="greg"."d_basis_vejnavn" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='vejkode' table="greg"."d_basis_vejnavn" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -15152,7 +15155,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>6203049.5</ymax>
       </extent>
       <id>t_greg_delomraader20161121135050288</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='objekt_id' srid=25832 type=MultiPolygon table="greg"."t_greg_delomraader" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='objekt_id' srid=25832 type=MultiPolygon table="greg"."t_greg_delomraader" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -15586,7 +15589,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="100000" maximumScale="1e+08" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>t_skitse_fl20161017182221964</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiPolygon table="greg"."t_skitse_fl" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiPolygon table="greg"."t_skitse_fl" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -15936,7 +15939,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>0.45784418356456802</ymax>
       </extent>
       <id>t_skitse_li20161017182221987</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiLineString table="greg"."t_skitse_li" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiLineString table="greg"."t_skitse_li" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -16290,7 +16293,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>0.52614727854855903</ymax>
       </extent>
       <id>t_skitse_pkt20161017182221997</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiPoint table="greg"."t_skitse_pkt" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiPoint table="greg"."t_skitse_pkt" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -16641,7 +16644,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="100000" maximumScale="1e+08" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>v_aendring_flader20161128090948994</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='objekt_id' srid=25832 type=MultiPolygon table="greg"."v_aendring_flader" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='objekt_id' srid=25832 type=MultiPolygon table="greg"."v_aendring_flader" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -16968,7 +16971,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="100000" maximumScale="1e+08" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>v_aendring_linier20161128090949439</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='objekt_id' srid=25832 type=MultiLineString table="greg"."v_aendring_linier" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='objekt_id' srid=25832 type=MultiLineString table="greg"."v_aendring_linier" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -17299,7 +17302,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer simplifyAlgorithm="0" minimumScale="100000" maximumScale="1e+08" simplifyDrawingHints="0" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <id>v_aendring_punkter20161128090949534</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='objekt_id' srid=25832 type=MultiPoint table="greg"."v_aendring_punkter" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='objekt_id' srid=25832 type=MultiPoint table="greg"."v_aendring_punkter" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -17631,7 +17634,7 @@ def my_form_open(dialog, layer, feature):
         <fieldstyles/>
       </conditionalstyles>
     </maplayer>
-    <maplayer simplifyAlgorithm="0" minimumScale="1e-09" maximumScale="3499" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+    <maplayer simplifyAlgorithm="0" minimumScale="0" maximumScale="3499" simplifyDrawingHints="1" readOnly="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <extent>
         <xmin>678742.85990034602582455</xmin>
         <ymin>6180138.66064863000065088</ymin>
@@ -17639,7 +17642,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>6202935.08050328958779573</ymax>
       </extent>
       <id>v_atlas20161121134416802</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='pkid' srid=25832 type=MultiPolygon table="greg"."v_atlas" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='objekt_id' srid=25832 type=MultiPolygon table="greg"."v_atlas" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -17662,7 +17665,7 @@ def my_form_open(dialog, layer, feature):
       <layerDependencies/>
       <expressionfields/>
       <defaults>
-        <default field="pkid" expression=""/>
+        <default field="objekt_id" expression=""/>
         <default field="omraadetype" expression=""/>
         <default field="pg_distrikt_nr" expression=""/>
         <default field="pg_distrikt_tekst" expression=""/>
@@ -17679,7 +17682,7 @@ def my_form_open(dialog, layer, feature):
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
-        <edittype widgetv2type="TextEdit" name="pkid">
+        <edittype widgetv2type="TextEdit" name="objekt_id">
           <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="omraadetype">
@@ -17694,8 +17697,8 @@ def my_form_open(dialog, layer, feature):
         <edittype widgetv2type="TextEdit" name="delnavn">
           <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
-        <edittype widgetv2type="ValueRelation" name="pg_distrikt_type">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="pg_distrikt_type" constraint="" Layer="d_basis_distrikt_type20161206101802616" Value="pg_distrikt_type" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+        <edittype widgetv2type="TextEdit" name="pg_distrikt_type">
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="delomraade">
           <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
@@ -17709,8 +17712,8 @@ def my_form_open(dialog, layer, feature):
         <edittype widgetv2type="TextEdit" name="vejnr">
           <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
-        <edittype widgetv2type="ValueRelation" name="postnr">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="postdistrikt" constraint="" Layer="v_basis_postdistrikter20161206101851991" Value="distriktnavn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+        <edittype widgetv2type="TextEdit" name="postnr">
+          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="distriktnavn">
           <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
@@ -17869,18 +17872,20 @@ def my_form_open(dialog, layer, feature):
         <property key="labeling/shapeSizeY" value="0"/>
         <property key="labeling/shapeTransparency" value="0"/>
         <property key="labeling/shapeType" value="0"/>
+        <property key="labeling/substitutions" value="&lt;substitutions/>"/>
         <property key="labeling/textColorA" value="255"/>
         <property key="labeling/textColorB" value="0"/>
         <property key="labeling/textColorG" value="0"/>
         <property key="labeling/textColorR" value="0"/>
         <property key="labeling/textTransp" value="0"/>
         <property key="labeling/upsidedownLabels" value="0"/>
+        <property key="labeling/useSubstitutions" value="false"/>
         <property key="labeling/wrapChar" value=""/>
         <property key="labeling/xOffset" value="0"/>
         <property key="labeling/yOffset" value="0"/>
         <property key="labeling/zIndex" value="0"/>
-        <property key="variableNames" value="_fields_"/>
-        <property key="variableValues" value=""/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
@@ -17938,7 +17943,7 @@ def my_form_open(dialog, layer, feature):
       <DiagramLayerSettings yPosColumn="-1" showColumn="-1" linePlacementFlags="10" placement="0" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
       <annotationform>16_10_18 - 1942</annotationform>
       <aliases>
-        <alias field="pkid" index="0" name="ID"/>
+        <alias field="objekt_id" index="0" name="ID"/>
         <alias field="omraadetype" index="1" name="Områdetype"/>
         <alias field="pg_distrikt_nr" index="2" name="Områdenr."/>
         <alias field="pg_distrikt_tekst" index="3" name="Område"/>
@@ -17956,7 +17961,7 @@ def my_form_open(dialog, layer, feature):
       <attributeactions default="-1"/>
       <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;pg_distrikt_nr&quot;" sortOrder="0">
         <columns>
-          <column width="-1" hidden="0" type="field" name="pkid"/>
+          <column width="-1" hidden="0" type="field" name="objekt_id"/>
           <column width="-1" hidden="0" type="field" name="omraadetype"/>
           <column width="-1" hidden="0" type="field" name="pg_distrikt_nr"/>
           <column width="-1" hidden="0" type="field" name="pg_distrikt_tekst"/>
@@ -18077,7 +18082,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>v_basis_elementer20161206101851816</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='element_kode' table="greg"."v_basis_elementer" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='element_kode' table="greg"."v_basis_elementer" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -18177,7 +18182,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>v_basis_hovedelementer20161206101851854</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='hovedelement_kode' table="greg"."v_basis_hovedelementer" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='hovedelement_kode' table="greg"."v_basis_hovedelementer" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -18267,7 +18272,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>v_basis_kommunal_kontakt20161206101851924</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='navn' table="greg"."v_basis_kommunal_kontakt" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='email' table="greg"."v_basis_kommunal_kontakt" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -18295,14 +18300,14 @@ def my_form_open(dialog, layer, feature):
       <layerDependencies/>
       <expressionfields/>
       <defaults>
-        <default field="navn" expression=""/>
+        <default field="email" expression=""/>
         <default field="samling" expression=""/>
       </defaults>
       <map-layer-style-manager current="">
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
-        <edittype widgetv2type="TextEdit" name="navn">
+        <edittype widgetv2type="TextEdit" name="email">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="samling">
@@ -18311,7 +18316,7 @@ def my_form_open(dialog, layer, feature):
       </edittypes>
       <annotationform>.</annotationform>
       <aliases>
-        <alias field="navn" index="0" name="Navn"/>
+        <alias field="email" index="0" name="Email"/>
         <alias field="samling" index="1" name="Look-up"/>
       </aliases>
       <excludeAttributesWMS/>
@@ -18355,7 +18360,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>v_basis_postdistrikter20161206101851991</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='postdistrikt' table="greg"."v_basis_postdistrikter" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='postnr' table="greg"."v_basis_postdistrikter" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -18374,8 +18379,8 @@ def my_form_open(dialog, layer, feature):
       </srs>
       <customproperties>
         <property key="embeddedWidgets/count" value="0"/>
-        <property key="variableNames" value="_fields_"/>
-        <property key="variableValues" value=""/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
       </customproperties>
       <provider encoding="UTF-8">postgres</provider>
       <previewExpression></previewExpression>
@@ -18383,14 +18388,14 @@ def my_form_open(dialog, layer, feature):
       <layerDependencies/>
       <expressionfields/>
       <defaults>
-        <default field="postdistrikt" expression=""/>
+        <default field="postnr" expression=""/>
         <default field="distriktnavn" expression=""/>
       </defaults>
       <map-layer-style-manager current="">
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
-        <edittype widgetv2type="TextEdit" name="postdistrikt">
+        <edittype widgetv2type="TextEdit" name="postnr">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="distriktnavn">
@@ -18399,7 +18404,7 @@ def my_form_open(dialog, layer, feature):
       </edittypes>
       <annotationform>.</annotationform>
       <aliases>
-        <alias field="postdistrikt" index="0" name="Postnr."/>
+        <alias field="postnr" index="0" name="Postnr"/>
         <alias field="distriktnavn" index="1" name="Look-up"/>
       </aliases>
       <excludeAttributesWMS/>
@@ -18407,9 +18412,9 @@ def my_form_open(dialog, layer, feature):
       <attributeactions default="-1"/>
       <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="1628015096">
         <columns>
-          <column width="-1" hidden="0" type="field" name="postdistrikt"/>
           <column width="-1" hidden="0" type="field" name="distriktnavn"/>
           <column width="-1" hidden="1" type="actions"/>
+          <column width="-1" hidden="0" type="field" name="postnr"/>
         </columns>
       </attributetableconfig>
       <editform>.</editform>
@@ -18443,7 +18448,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>v_basis_udfoerer_kontakt20161206101851956</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='navn' table="greg"."v_basis_udfoerer_kontakt" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='email' table="greg"."v_basis_udfoerer_kontakt" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -18471,14 +18476,14 @@ def my_form_open(dialog, layer, feature):
       <layerDependencies/>
       <expressionfields/>
       <defaults>
-        <default field="navn" expression=""/>
+        <default field="email" expression=""/>
         <default field="samling" expression=""/>
       </defaults>
       <map-layer-style-manager current="">
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
-        <edittype widgetv2type="TextEdit" name="navn">
+        <edittype widgetv2type="TextEdit" name="email">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="samling">
@@ -18487,7 +18492,7 @@ def my_form_open(dialog, layer, feature):
       </edittypes>
       <annotationform>.</annotationform>
       <aliases>
-        <alias field="navn" index="0" name="Navn"/>
+        <alias field="email" index="0" name="Email"/>
         <alias field="samling" index="1" name="Look-up"/>
       </aliases>
       <excludeAttributesWMS/>
@@ -18531,7 +18536,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>v_basis_underelementer20161206101851891</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='underelement_kode' table="greg"."v_basis_underelementer" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='underelement_kode' table="greg"."v_basis_underelementer" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -18637,7 +18642,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>6202860.2799937603995204</ymax>
       </extent>
       <id>v_greg_flader20161206100924360</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiPolygon table="greg"."v_greg_flader" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiPolygon table="greg"."v_greg_flader" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -18775,7 +18780,7 @@ def my_form_open(dialog, layer, feature):
           <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="&quot;aktiv&quot;=1" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="d_basis_udfoerer_entrep20161206101802947" Value="navn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="kommunal_kontakt">
-          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="v_basis_kommunal_kontakt20161206101851924" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="email" constraint="" Layer="v_basis_kommunal_kontakt20161206101851924" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="kommunal_kontakt_info">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
@@ -21714,7 +21719,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>6202717.66999373957514763</ymax>
       </extent>
       <id>v_greg_linier20161206100924295</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiLineString table="greg"."v_greg_linier" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiLineString table="greg"."v_greg_linier" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -21851,7 +21856,7 @@ def my_form_open(dialog, layer, feature):
           <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="&quot;aktiv&quot;=1" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="d_basis_udfoerer_entrep20161206101802947" Value="navn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="kommunal_kontakt">
-          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="v_basis_kommunal_kontakt20161206101851924" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="email" constraint="" Layer="v_basis_kommunal_kontakt20161206101851924" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="kommunal_kontakt_info">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
@@ -23660,7 +23665,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>v_greg_omraadeliste20161216103305106</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' table="greg"."v_greg_omraadeliste" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='objekt_id' table="greg"."v_greg_omraadeliste" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -23688,20 +23693,9 @@ def my_form_open(dialog, layer, feature):
       <layerDependencies/>
       <expressionfields/>
       <defaults>
-        <default field="versions_id" expression=""/>
         <default field="objekt_id" expression=""/>
-        <default field="systid_fra" expression=""/>
-        <default field="oprettet" expression=""/>
-        <default field="cvr_kode" expression="29189129"/>
-        <default field="cvr_navn" expression=""/>
         <default field="bruger_id" expression=""/>
         <default field="bruger" expression=""/>
-        <default field="oprindkode" expression="0"/>
-        <default field="oprindelse" expression=""/>
-        <default field="statuskode" expression="0"/>
-        <default field="status" expression=""/>
-        <default field="off_kode" expression="1"/>
-        <default field="offentlig" expression=""/>
         <default field="pg_distrikt_nr" expression=""/>
         <default field="pg_distrikt_tekst" expression=""/>
         <default field="pg_distrikt_type" expression=""/>
@@ -23725,46 +23719,13 @@ def my_form_open(dialog, layer, feature):
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
-        <edittype widgetv2type="TextEdit" name="versions_id">
-          <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
         <edittype widgetv2type="TextEdit" name="objekt_id">
           <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="systid_fra">
-          <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="oprettet">
-          <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="ValueRelation" name="cvr_kode">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="&quot;aktiv&quot; = 1" UseCompleter="0" fieldEditable="1" Key="cvr_kode" constraint="" Layer="d_basis_ansvarlig_myndighed20161206101802549" Value="cvr_navn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="Hidden" name="cvr_navn">
-          <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="bruger_id">
           <widgetv2config OrderByValue="1" AllowNull="0" FilterExpression="&quot;aktiv&quot; = 1" UseCompleter="0" fieldEditable="1" Key="bruger_id" constraint="" Layer="d_basis_bruger_id20161206101802586" Value="navn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="bruger">
-          <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="ValueRelation" name="oprindkode">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="&quot;aktiv&quot; = 1" UseCompleter="0" fieldEditable="1" Key="oprindkode" constraint="" Layer="d_basis_oprindelse20161206101802760" Value="oprindelse" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="Hidden" name="oprindelse">
-          <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="ValueRelation" name="statuskode">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="&quot;aktiv&quot; = 1" UseCompleter="0" fieldEditable="1" Key="statuskode" constraint="" Layer="d_basis_status20161206101802853" Value="status" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="Hidden" name="status">
-          <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="ValueRelation" name="off_kode">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="&quot;aktiv&quot; = 1" UseCompleter="0" fieldEditable="1" Key="off_kode" constraint="" Layer="d_basis_offentlig20161206101802733" Value="offentlig" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="Hidden" name="offentlig">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="pg_distrikt_nr">
@@ -23780,37 +23741,37 @@ def my_form_open(dialog, layer, feature):
           <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="&quot;aktiv&quot; = 1" UseCompleter="0" fieldEditable="1" Key="udfoerer" constraint="" Layer="d_basis_udfoerer20161206101802919" Value="udfoerer" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="udfoerer_kontakt1">
-          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="v_basis_udfoerer_kontakt20161206101851956" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="email" constraint="" Layer="v_basis_udfoerer_kontakt20161206101851956" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="udfoerer_kontakt1_info">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="udfoerer_kontakt2">
-          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="v_basis_udfoerer_kontakt20161206101851956" Value="navn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="email" constraint="" Layer="v_basis_udfoerer_kontakt20161206101851956" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="udfoerer_kontakt2_info">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="kommunal_kontakt">
-          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="v_basis_kommunal_kontakt20161206101851924" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="email" constraint="" Layer="v_basis_kommunal_kontakt20161206101851924" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="kommunal_kontakt_info">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
+        <edittype widgetv2type="Hidden" name="kommunal_kontakt_info">
+          <widgetv2config fieldEditable="1" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="vejkode">
           <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="&quot;aktiv&quot; = 1" UseCompleter="0" fieldEditable="1" Key="vejkode" constraint="" Layer="d_basis_vejnavn20161206101803035" Value="vejnavn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="vejnavn">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
+        <edittype widgetv2type="Hidden" name="vejnavn">
+          <widgetv2config fieldEditable="1" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="vejnr">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="postnr">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="postdistrikt" constraint="" Layer="v_basis_postdistrikter20161206101851991" Value="distriktnavn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="postnr" constraint="" Layer="v_basis_postdistrikter20161206101851991" Value="distriktnavn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
-        <edittype widgetv2type="TextEdit" name="distrikt">
-          <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
+        <edittype widgetv2type="Hidden" name="distrikt">
+          <widgetv2config fieldEditable="1" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="TextEdit" name="note">
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
@@ -23827,58 +23788,36 @@ def my_form_open(dialog, layer, feature):
       </edittypes>
       <annotationform>.</annotationform>
       <aliases>
-        <alias field="versions_id" index="0" name="Version ID"/>
-        <alias field="objekt_id" index="1" name="Objekt ID"/>
-        <alias field="systid_fra" index="2" name="Seneste ændring"/>
-        <alias field="oprettet" index="3" name="Oprettet"/>
-        <alias field="cvr_kode" index="4" name="Myndighed"/>
-        <alias field="cvr_navn" index="5" name=""/>
-        <alias field="bruger_id" index="6" name="Bruger ID"/>
-        <alias field="bruger" index="7" name=""/>
-        <alias field="oprindkode" index="8" name="Oprindelse"/>
-        <alias field="oprindelse" index="9" name=""/>
-        <alias field="statuskode" index="10" name="Status"/>
-        <alias field="status" index="11" name=""/>
-        <alias field="off_kode" index="12" name="Offentlig"/>
-        <alias field="offentlig" index="13" name=""/>
-        <alias field="pg_distrikt_nr" index="14" name="Områdenr."/>
-        <alias field="pg_distrikt_tekst" index="15" name="Område"/>
-        <alias field="pg_distrikt_type" index="16" name="Områdetype"/>
-        <alias field="udfoerer" index="17" name="Udfører"/>
-        <alias field="udfoerer_kontakt1" index="18" name="Udfører, kontakt"/>
-        <alias field="udfoerer_kontakt1_info" index="19" name=""/>
-        <alias field="udfoerer_kontakt2" index="20" name="Udfører, kontakt2"/>
-        <alias field="udfoerer_kontakt2_info" index="21" name=""/>
-        <alias field="kommunal_kontakt" index="22" name="Kommunal kontakt"/>
-        <alias field="kommunal_kontakt_info" index="23" name=""/>
-        <alias field="vejkode" index="24" name="Vej"/>
-        <alias field="vejnavn" index="25" name=""/>
-        <alias field="vejnr" index="26" name="Vejnr."/>
-        <alias field="postnr" index="27" name="Postnr."/>
-        <alias field="distrikt" index="28" name=""/>
-        <alias field="note" index="29" name="Note"/>
-        <alias field="link" index="30" name="Link"/>
-        <alias field="aktiv" index="31" name="Aktiv"/>
+        <alias field="objekt_id" index="0" name="Objekt ID"/>
+        <alias field="bruger_id" index="1" name="Bruger ID"/>
+        <alias field="bruger" index="2" name=""/>
+        <alias field="pg_distrikt_nr" index="3" name="Områdenr."/>
+        <alias field="pg_distrikt_tekst" index="4" name="Område"/>
+        <alias field="pg_distrikt_type" index="5" name="Områdetype"/>
+        <alias field="udfoerer" index="6" name="Udfører"/>
+        <alias field="udfoerer_kontakt1" index="7" name="Udfører, kontakt"/>
+        <alias field="udfoerer_kontakt1_info" index="8" name=""/>
+        <alias field="udfoerer_kontakt2" index="9" name="Udfører, kontakt2"/>
+        <alias field="udfoerer_kontakt2_info" index="10" name=""/>
+        <alias field="kommunal_kontakt" index="11" name="Kommunal kontakt"/>
+        <alias field="kommunal_kontakt_info" index="12" name=""/>
+        <alias field="vejkode" index="13" name="Vej"/>
+        <alias field="vejnavn" index="14" name=""/>
+        <alias field="vejnr" index="15" name="Vejnr."/>
+        <alias field="postnr" index="16" name="Postnr."/>
+        <alias field="distrikt" index="17" name=""/>
+        <alias field="note" index="18" name="Note"/>
+        <alias field="link" index="19" name="Link"/>
+        <alias field="aktiv" index="20" name="Aktiv"/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions default="-1"/>
       <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="6356992">
         <columns>
-          <column width="-1" hidden="0" type="field" name="versions_id"/>
           <column width="-1" hidden="0" type="field" name="objekt_id"/>
-          <column width="-1" hidden="0" type="field" name="systid_fra"/>
-          <column width="-1" hidden="0" type="field" name="oprettet"/>
-          <column width="-1" hidden="0" type="field" name="cvr_kode"/>
-          <column width="-1" hidden="1" type="field" name="cvr_navn"/>
           <column width="-1" hidden="0" type="field" name="bruger_id"/>
           <column width="-1" hidden="1" type="field" name="bruger"/>
-          <column width="-1" hidden="0" type="field" name="oprindkode"/>
-          <column width="-1" hidden="1" type="field" name="oprindelse"/>
-          <column width="-1" hidden="0" type="field" name="statuskode"/>
-          <column width="-1" hidden="1" type="field" name="status"/>
-          <column width="-1" hidden="0" type="field" name="off_kode"/>
-          <column width="-1" hidden="1" type="field" name="offentlig"/>
           <column width="-1" hidden="0" type="field" name="pg_distrikt_nr"/>
           <column width="-1" hidden="0" type="field" name="pg_distrikt_tekst"/>
           <column width="-1" hidden="0" type="field" name="pg_distrikt_type"/>
@@ -23926,48 +23865,47 @@ def my_form_open(dialog, layer, feature):
       <attributeEditorForm>
         <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Generelt" groupBox="0" columnCount="1">
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Generelt" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="6" name="bruger_id"/>
-            <attributeEditorField showLabel="1" index="10" name="statuskode"/>
-            <attributeEditorField showLabel="1" index="8" name="oprindkode"/>
+            <attributeEditorField showLabel="1" index="1" name="bruger_id"/>
+            <attributeEditorField showLabel="1" index="-1" name="statuskode"/>
+            <attributeEditorField showLabel="1" index="-1" name="oprindkode"/>
           </attributeEditorContainer>
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Ændres normalt ikke" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="4" name="cvr_kode"/>
-            <attributeEditorField showLabel="1" index="12" name="off_kode"/>
-            <attributeEditorField showLabel="1" index="31" name="aktiv"/>
+            <attributeEditorField showLabel="1" index="-1" name="cvr_kode"/>
+            <attributeEditorField showLabel="1" index="-1" name="off_kode"/>
+            <attributeEditorField showLabel="1" index="20" name="aktiv"/>
           </attributeEditorContainer>
-          <attributeEditorField showLabel="1" index="30" name="link"/>
+          <attributeEditorField showLabel="1" index="19" name="link"/>
         </attributeEditorContainer>
         <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Område" groupBox="0" columnCount="1">
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Område" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="14" name="pg_distrikt_nr"/>
-            <attributeEditorField showLabel="1" index="15" name="pg_distrikt_tekst"/>
-            <attributeEditorField showLabel="1" index="16" name="pg_distrikt_type"/>
+            <attributeEditorField showLabel="1" index="3" name="pg_distrikt_nr"/>
+            <attributeEditorField showLabel="1" index="4" name="pg_distrikt_tekst"/>
+            <attributeEditorField showLabel="1" index="5" name="pg_distrikt_type"/>
           </attributeEditorContainer>
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Vejinformation" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="24" name="vejkode"/>
-            <attributeEditorField showLabel="1" index="26" name="vejnr"/>
-            <attributeEditorField showLabel="1" index="27" name="postnr"/>
+            <attributeEditorField showLabel="1" index="13" name="vejkode"/>
+            <attributeEditorField showLabel="1" index="15" name="vejnr"/>
+            <attributeEditorField showLabel="1" index="16" name="postnr"/>
           </attributeEditorContainer>
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Note" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="29" name="note"/>
+            <attributeEditorField showLabel="1" index="18" name="note"/>
           </attributeEditorContainer>
         </attributeEditorContainer>
         <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Kontakt" groupBox="0" columnCount="1">
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Udfører" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="17" name="udfoerer"/>
-            <attributeEditorField showLabel="1" index="18" name="udfoerer_kontakt1"/>
-            <attributeEditorField showLabel="1" index="20" name="udfoerer_kontakt2"/>
+            <attributeEditorField showLabel="1" index="6" name="udfoerer"/>
+            <attributeEditorField showLabel="1" index="7" name="udfoerer_kontakt1"/>
+            <attributeEditorField showLabel="1" index="9" name="udfoerer_kontakt2"/>
           </attributeEditorContainer>
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Kommune" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="22" name="kommunal_kontakt"/>
+            <attributeEditorField showLabel="1" index="11" name="kommunal_kontakt"/>
           </attributeEditorContainer>
         </attributeEditorContainer>
         <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Information" groupBox="0" columnCount="1">
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Input" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="0" name="versions_id"/>
-            <attributeEditorField showLabel="1" index="1" name="objekt_id"/>
-            <attributeEditorField showLabel="1" index="2" name="systid_fra"/>
-            <attributeEditorField showLabel="1" index="3" name="oprettet"/>
+            <attributeEditorField showLabel="1" index="0" name="objekt_id"/>
+            <attributeEditorField showLabel="1" index="-1" name="systid_fra"/>
+            <attributeEditorField showLabel="1" index="-1" name="oprettet"/>
           </attributeEditorContainer>
         </attributeEditorContainer>
       </attributeEditorForm>
@@ -23985,7 +23923,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>6202860.28000000026077032</ymax>
       </extent>
       <id>v_greg_omraader20161206100924249</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiPolygon table="greg"."v_greg_omraader" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='objekt_id' srid=25832 type=MultiPolygon table="greg"."v_greg_omraader" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -24003,25 +23941,14 @@ def my_form_open(dialog, layer, feature):
         </spatialrefsys>
       </srs>
       <provider encoding="UTF-8">postgres</provider>
-      <previewExpression>COALESCE( "versions_id", '&lt;NULL>' )</previewExpression>
+      <previewExpression>COALESCE( "objekt_id", '&lt;NULL>' )</previewExpression>
       <vectorjoins/>
       <layerDependencies/>
       <expressionfields/>
       <defaults>
-        <default field="versions_id" expression=""/>
         <default field="objekt_id" expression=""/>
-        <default field="systid_fra" expression=""/>
-        <default field="oprettet" expression=""/>
-        <default field="cvr_kode" expression="29189129"/>
-        <default field="cvr_navn" expression=""/>
         <default field="bruger_id" expression=""/>
         <default field="bruger" expression=""/>
-        <default field="oprindkode" expression="0"/>
-        <default field="oprindelse" expression=""/>
-        <default field="statuskode" expression="0"/>
-        <default field="status" expression=""/>
-        <default field="off_kode" expression="1"/>
-        <default field="offentlig" expression=""/>
         <default field="pg_distrikt_nr" expression=""/>
         <default field="pg_distrikt_tekst" expression=""/>
         <default field="pg_distrikt_type" expression=""/>
@@ -24046,46 +23973,13 @@ def my_form_open(dialog, layer, feature):
         <map-layer-style name=""/>
       </map-layer-style-manager>
       <edittypes>
-        <edittype widgetv2type="TextEdit" name="versions_id">
-          <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
         <edittype widgetv2type="TextEdit" name="objekt_id">
           <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="systid_fra">
-          <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="TextEdit" name="oprettet">
-          <widgetv2config IsMultiline="0" fieldEditable="0" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="ValueRelation" name="cvr_kode">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="&quot;aktiv&quot; = 1" UseCompleter="0" fieldEditable="1" Key="cvr_kode" constraint="" Layer="d_basis_ansvarlig_myndighed20161206101802549" Value="cvr_navn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="Hidden" name="cvr_navn">
-          <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="bruger_id">
           <widgetv2config OrderByValue="1" AllowNull="0" FilterExpression="&quot;aktiv&quot;=1" UseCompleter="0" fieldEditable="1" Key="bruger_id" constraint="" Layer="d_basis_bruger_id20161206101802586" Value="navn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="bruger">
-          <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="ValueRelation" name="oprindkode">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="&quot;aktiv&quot;=1" UseCompleter="0" fieldEditable="1" Key="oprindkode" constraint="" Layer="d_basis_oprindelse20161206101802760" Value="oprindelse" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="Hidden" name="oprindelse">
-          <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="ValueRelation" name="statuskode">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="&quot;aktiv&quot;=1" UseCompleter="0" fieldEditable="1" Key="statuskode" constraint="" Layer="d_basis_status20161206101802853" Value="status" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="Hidden" name="status">
-          <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="ValueRelation" name="off_kode">
-          <widgetv2config OrderByValue="0" AllowNull="0" FilterExpression="&quot;aktiv&quot;=1" UseCompleter="0" fieldEditable="1" Key="off_kode" constraint="" Layer="d_basis_offentlig20161206101802733" Value="offentlig" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
-        </edittype>
-        <edittype widgetv2type="Hidden" name="offentlig">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="pg_distrikt_nr">
@@ -24101,19 +23995,19 @@ def my_form_open(dialog, layer, feature):
           <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="&quot;aktiv&quot;=1" UseCompleter="0" fieldEditable="1" Key="udfoerer" constraint="" Layer="d_basis_udfoerer20161206101802919" Value="udfoerer" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="udfoerer_kontakt1">
-          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="v_basis_udfoerer_kontakt20161206101851956" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="email" constraint="" Layer="v_basis_udfoerer_kontakt20161206101851956" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="udfoerer_kontakt1_info">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="udfoerer_kontakt2">
-          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="v_basis_udfoerer_kontakt20161206101851956" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="email" constraint="" Layer="v_basis_udfoerer_kontakt20161206101851956" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="udfoerer_kontakt2_info">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="kommunal_kontakt">
-          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="v_basis_kommunal_kontakt20161206101851924" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="email" constraint="" Layer="v_basis_kommunal_kontakt20161206101851924" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="kommunal_kontakt_info">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
@@ -24128,7 +24022,7 @@ def my_form_open(dialog, layer, feature):
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="postnr">
-          <widgetv2config OrderByValue="1" AllowNull="0" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="postdistrikt" constraint="" Layer="v_basis_postdistrikter20161206101851991" Value="distriktnavn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="1" AllowNull="0" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="postnr" constraint="" Layer="v_basis_postdistrikter20161206101851991" Value="distriktnavn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="distrikt">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
@@ -24553,59 +24447,37 @@ def my_form_open(dialog, layer, feature):
       <DiagramLayerSettings yPosColumn="-1" showColumn="-1" linePlacementFlags="10" placement="0" dist="0" xPosColumn="-1" priority="0" obstacle="0" zIndex="0" showAll="1"/>
       <annotationform>16_10_18 - 1942</annotationform>
       <aliases>
-        <alias field="versions_id" index="0" name="Version ID"/>
-        <alias field="objekt_id" index="1" name="Objekt ID"/>
-        <alias field="systid_fra" index="2" name="Senestre ændring"/>
-        <alias field="oprettet" index="3" name="Oprettet"/>
-        <alias field="cvr_kode" index="4" name="Myndighed"/>
-        <alias field="cvr_navn" index="5" name=""/>
-        <alias field="bruger_id" index="6" name="Bruger ID"/>
-        <alias field="bruger" index="7" name=""/>
-        <alias field="oprindkode" index="8" name="Oprindelse"/>
-        <alias field="oprindelse" index="9" name=""/>
-        <alias field="statuskode" index="10" name="Status"/>
-        <alias field="status" index="11" name=""/>
-        <alias field="off_kode" index="12" name="Offentlig"/>
-        <alias field="offentlig" index="13" name=""/>
-        <alias field="pg_distrikt_nr" index="14" name="Områdenr."/>
-        <alias field="pg_distrikt_tekst" index="15" name="Område"/>
-        <alias field="pg_distrikt_type" index="16" name="Områdetype"/>
-        <alias field="udfoerer" index="17" name="Udfører"/>
-        <alias field="udfoerer_kontakt1" index="18" name="Udfører, kontakt"/>
-        <alias field="udfoerer_kontakt1_info" index="19" name=""/>
-        <alias field="udfoerer_kontakt2" index="20" name="Udfører, kontakt2"/>
-        <alias field="udfoerer_kontakt2_info" index="21" name=""/>
-        <alias field="kommunal_kontakt" index="22" name="Kommunal kontakt"/>
-        <alias field="kommunal_kontakt_info" index="23" name=""/>
-        <alias field="vejkode" index="24" name="Vej"/>
-        <alias field="vejnavn" index="25" name=""/>
-        <alias field="vejnr" index="26" name="Vejnr."/>
-        <alias field="postnr" index="27" name="Postnr."/>
-        <alias field="distrikt" index="28" name=""/>
-        <alias field="note" index="29" name="Note"/>
-        <alias field="link" index="30" name="Link"/>
-        <alias field="areal" index="31" name="Areal"/>
-        <alias field="aktiv" index="32" name="Aktiv"/>
+        <alias field="objekt_id" index="0" name="Objekt ID"/>
+        <alias field="bruger_id" index="1" name="Bruger ID"/>
+        <alias field="bruger" index="2" name=""/>
+        <alias field="pg_distrikt_nr" index="3" name="Områdenr."/>
+        <alias field="pg_distrikt_tekst" index="4" name="Område"/>
+        <alias field="pg_distrikt_type" index="5" name="Områdetype"/>
+        <alias field="udfoerer" index="6" name="Udfører"/>
+        <alias field="udfoerer_kontakt1" index="7" name="Udfører, kontakt"/>
+        <alias field="udfoerer_kontakt1_info" index="8" name=""/>
+        <alias field="udfoerer_kontakt2" index="9" name="Udfører, kontakt2"/>
+        <alias field="udfoerer_kontakt2_info" index="10" name=""/>
+        <alias field="kommunal_kontakt" index="11" name="Kommunal kontakt"/>
+        <alias field="kommunal_kontakt_info" index="12" name=""/>
+        <alias field="vejkode" index="13" name="Vej"/>
+        <alias field="vejnavn" index="14" name=""/>
+        <alias field="vejnr" index="15" name="Vejnr."/>
+        <alias field="postnr" index="16" name="Postnr."/>
+        <alias field="distrikt" index="17" name=""/>
+        <alias field="note" index="18" name="Note"/>
+        <alias field="link" index="19" name="Link"/>
+        <alias field="areal" index="20" name="Areal"/>
+        <alias field="aktiv" index="21" name="Aktiv"/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <attributeactions default="-1"/>
       <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns>
-          <column width="-1" hidden="0" type="field" name="versions_id"/>
           <column width="-1" hidden="0" type="field" name="objekt_id"/>
-          <column width="157" hidden="0" type="field" name="systid_fra"/>
-          <column width="-1" hidden="0" type="field" name="oprettet"/>
-          <column width="-1" hidden="0" type="field" name="cvr_kode"/>
-          <column width="-1" hidden="1" type="field" name="cvr_navn"/>
           <column width="-1" hidden="0" type="field" name="bruger_id"/>
           <column width="-1" hidden="1" type="field" name="bruger"/>
-          <column width="-1" hidden="0" type="field" name="oprindkode"/>
-          <column width="-1" hidden="1" type="field" name="oprindelse"/>
-          <column width="-1" hidden="0" type="field" name="statuskode"/>
-          <column width="-1" hidden="1" type="field" name="status"/>
-          <column width="-1" hidden="0" type="field" name="off_kode"/>
-          <column width="-1" hidden="1" type="field" name="offentlig"/>
           <column width="-1" hidden="0" type="field" name="pg_distrikt_nr"/>
           <column width="288" hidden="0" type="field" name="pg_distrikt_tekst"/>
           <column width="-1" hidden="0" type="field" name="pg_distrikt_type"/>
@@ -24654,51 +24526,50 @@ def my_form_open(dialog, layer, feature):
       <attributeEditorForm>
         <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Generelt" groupBox="0" columnCount="1">
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Generelt" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="6" name="bruger_id"/>
-            <attributeEditorField showLabel="1" index="10" name="statuskode"/>
-            <attributeEditorField showLabel="1" index="8" name="oprindkode"/>
+            <attributeEditorField showLabel="1" index="1" name="bruger_id"/>
+            <attributeEditorField showLabel="1" index="-1" name="statuskode"/>
+            <attributeEditorField showLabel="1" index="-1" name="oprindkode"/>
           </attributeEditorContainer>
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Ændres normalt ikke" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="4" name="cvr_kode"/>
-            <attributeEditorField showLabel="1" index="12" name="off_kode"/>
-            <attributeEditorField showLabel="1" index="32" name="aktiv"/>
+            <attributeEditorField showLabel="1" index="-1" name="cvr_kode"/>
+            <attributeEditorField showLabel="1" index="-1" name="off_kode"/>
+            <attributeEditorField showLabel="1" index="21" name="aktiv"/>
           </attributeEditorContainer>
-          <attributeEditorField showLabel="1" index="30" name="link"/>
+          <attributeEditorField showLabel="1" index="19" name="link"/>
         </attributeEditorContainer>
         <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Område" groupBox="0" columnCount="1">
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Område" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="14" name="pg_distrikt_nr"/>
-            <attributeEditorField showLabel="1" index="15" name="pg_distrikt_tekst"/>
-            <attributeEditorField showLabel="1" index="16" name="pg_distrikt_type"/>
+            <attributeEditorField showLabel="1" index="3" name="pg_distrikt_nr"/>
+            <attributeEditorField showLabel="1" index="4" name="pg_distrikt_tekst"/>
+            <attributeEditorField showLabel="1" index="5" name="pg_distrikt_type"/>
           </attributeEditorContainer>
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Vejinformation" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="24" name="vejkode"/>
-            <attributeEditorField showLabel="1" index="26" name="vejnr"/>
-            <attributeEditorField showLabel="1" index="27" name="postnr"/>
+            <attributeEditorField showLabel="1" index="13" name="vejkode"/>
+            <attributeEditorField showLabel="1" index="15" name="vejnr"/>
+            <attributeEditorField showLabel="1" index="16" name="postnr"/>
           </attributeEditorContainer>
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Note" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="29" name="note"/>
+            <attributeEditorField showLabel="1" index="18" name="note"/>
           </attributeEditorContainer>
         </attributeEditorContainer>
         <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Kontakt" groupBox="0" columnCount="1">
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Udfører" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="17" name="udfoerer"/>
-            <attributeEditorField showLabel="1" index="18" name="udfoerer_kontakt1"/>
-            <attributeEditorField showLabel="1" index="20" name="udfoerer_kontakt2"/>
+            <attributeEditorField showLabel="1" index="6" name="udfoerer"/>
+            <attributeEditorField showLabel="1" index="7" name="udfoerer_kontakt1"/>
+            <attributeEditorField showLabel="1" index="9" name="udfoerer_kontakt2"/>
           </attributeEditorContainer>
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Kommune" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="22" name="kommunal_kontakt"/>
+            <attributeEditorField showLabel="1" index="11" name="kommunal_kontakt"/>
           </attributeEditorContainer>
         </attributeEditorContainer>
         <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Information" groupBox="0" columnCount="1">
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Input" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="0" name="versions_id"/>
-            <attributeEditorField showLabel="1" index="1" name="objekt_id"/>
-            <attributeEditorField showLabel="1" index="2" name="systid_fra"/>
-            <attributeEditorField showLabel="1" index="3" name="oprettet"/>
+            <attributeEditorField showLabel="1" index="0" name="objekt_id"/>
+            <attributeEditorField showLabel="1" index="-1" name="systid_fra"/>
+            <attributeEditorField showLabel="1" index="-1" name="oprettet"/>
           </attributeEditorContainer>
           <attributeEditorContainer showLabel="1" visibilityExpressionEnabled="0" visibilityExpression="" name="Geometri" groupBox="1" columnCount="1">
-            <attributeEditorField showLabel="1" index="31" name="areal"/>
+            <attributeEditorField showLabel="1" index="20" name="areal"/>
           </attributeEditorContainer>
         </attributeEditorContainer>
       </attributeEditorForm>
@@ -24753,7 +24624,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>6202738.09999370016157627</ymax>
       </extent>
       <id>v_greg_punkter20161206100924089</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='versions_id' srid=25832 type=MultiPoint table="greg"."v_greg_punkter" (geometri) sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='versions_id' srid=25832 type=MultiPoint table="greg"."v_greg_punkter" (geometri) sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -24890,7 +24761,7 @@ def my_form_open(dialog, layer, feature):
           <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="&quot;aktiv&quot; = 1" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="d_basis_udfoerer_entrep20161206101802947" Value="navn" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="ValueRelation" name="kommunal_kontakt">
-          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="navn" constraint="" Layer="v_basis_kommunal_kontakt20161206101851924" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
+          <widgetv2config OrderByValue="1" AllowNull="1" FilterExpression="" UseCompleter="0" fieldEditable="1" Key="email" constraint="" Layer="v_basis_kommunal_kontakt20161206101851924" Value="samling" labelOnTop="0" constraintDescription="" AllowMulti="0" notNull="0"/>
         </edittype>
         <edittype widgetv2type="Hidden" name="kommunal_kontakt_info">
           <widgetv2config fieldEditable="0" constraint="" labelOnTop="0" constraintDescription="" notNull="0"/>
@@ -27246,7 +27117,7 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer minimumScale="100000" maximumScale="1e+08" readOnly="0" geometry="No geometry" type="vector" hasScaleBasedVisibilityFlag="0">
       <id>v_oversigt_omraade20161206102033243</id>
-      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='postgres' password='ukulemy' sslmode=disable key='omraadenr' table="greg"."v_oversigt_omraade" sql=</datasource>
+      <datasource>dbname='groenreg' host=f-pgsql01.ad.frederikssund.dk port=5432 user='qgis_reader' password='qgis_reader' sslmode=disable key='omraadenr' table="greg"."v_oversigt_omraade" sql=</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -30883,8 +30754,8 @@ def my_form_open(dialog, layer, feature):
         <checked-legend-node id="{07c6fe3f-20b1-40e3-8955-fb8978562ab4}"/>
         <checked-legend-node id="{34afac6c-7d62-408e-8f91-2b7155f6f147}"/>
         <checked-legend-node id="{0c1edeea-8ade-49f2-96c7-3388efafa372}"/>
-        <checked-legend-node id="{c53f684d-0f70-43dd-93b3-1766b85a4e77}"/>
         <checked-legend-node id="{34f7c01f-c8e9-4174-94d6-3896f262d980}"/>
+        <checked-legend-node id="{c53f684d-0f70-43dd-93b3-1766b85a4e77}"/>
         <checked-legend-node id="{113067db-7a50-448e-9c6a-d0fcdba3e16a}"/>
         <checked-legend-node id="{238d6a07-cfcb-4a78-8b2c-58e88d418dcc}"/>
         <checked-legend-node id="{3995e671-9358-4081-8d45-7a9a36edc157}"/>
@@ -30989,9 +30860,9 @@ def my_form_open(dialog, layer, feature):
         <checked-legend-node id="{ced528b2-ef0c-4a36-9f18-b00dd5562142}"/>
         <checked-legend-node id="{277a6f00-759b-470f-95ca-c5e607d9a2a6}"/>
         <checked-legend-node id="{24092cd4-6172-4b06-8e3a-75fd9657d87b}"/>
+        <checked-legend-node id="{bc5b90ba-dda6-4c50-8f18-df137bd510c9}"/>
         <checked-legend-node id="{83ad3eeb-15b8-47e4-a019-63113ea7d898}"/>
         <checked-legend-node id="{60264007-8b45-41a4-9cd6-bead20ca5405}"/>
-        <checked-legend-node id="{bc5b90ba-dda6-4c50-8f18-df137bd510c9}"/>
         <checked-legend-node id="{d5d32578-a287-4c92-9b7b-2387fc5f599a}"/>
         <checked-legend-node id="{a03b2be1-5137-414b-86e5-93f93e725873}"/>
         <checked-legend-node id="{c99684f9-ac06-437d-8870-301090b06738}"/>

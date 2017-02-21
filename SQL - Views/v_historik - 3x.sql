@@ -31,16 +31,3 @@ SELECT
 FROM greg.f_dato_flader(int,int,int);
 
 COMMENT ON VIEW  IS 'Simulering af registreringen på en bestemt dato. Format: dd-MM-yyyy.';
-
-
-/*
-DROP VIEW IF EXISTS greg.v_historik_omraader;
-
-CREATE VIEW greg.v_historik_omraader AS
-
-SELECT
-	*
-FROM greg.f_dato_omraader(int,int,int);
-
-COMMENT ON VIEW  IS 'Simulering af registreringen på en bestemt dato. Format: dd-MM-yyyy.';
-*/
